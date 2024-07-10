@@ -118,8 +118,8 @@ export default function Home() {
         scrollToServices={scrollToServices}
       />
 
-      <div className="pt-10 md:pt-14">
-        <section className="app__hero relative bg-black text-white min-h-screen flex items-center justify-center">
+      <div className="pt-2 md:pt-14">
+        <section className="app__hero relative bg-black text-white min-h-screen flex items-center justify-center pt-2 md:pt-0">
           <div className="container mx-auto p-6 lg:px-8 text-center">
             <motion.div
               initial={{ opacity: 0, y: 15 }}
@@ -142,18 +142,6 @@ export default function Home() {
                     what specification of a company or a product are to be
                     showcased.
                   </p>
-                  {/* <div className="flex gap-5 mb-4">
-                    <Link href="/contact">
-                      <button className="primary-btn shadow-lg">
-                        Get Started
-                      </button>
-                    </Link>
-                    <Link href="/about">
-                      <button className="secondary-btn shadow-lg">
-                        Know More
-                      </button>
-                    </Link>
-                  </div> */}
                   <Link
                     href={"/book"}
                     className="cursor-pointer flex items-center justify-center border rounded-full w-48 p-2 mx-auto my-4 text-white"
