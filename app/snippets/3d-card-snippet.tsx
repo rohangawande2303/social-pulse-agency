@@ -17,7 +17,7 @@ export function ThreeDCardExample() {
             alt="thumbnail"
           />
           <div className="text-center mt-4 text-lg font-bold text-black-300">
-            Founder - Rishab Mishra
+            Founder - Rishabh Mishra
           </div>
         </CardItem>
       </CardBody>
