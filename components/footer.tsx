@@ -130,7 +130,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="text-center py-6 mt-4 md:mt-8 lg:mt-12 mb-[4.5rem] md:mb-0 border-t border-white pt-6">
+      <div className="text-center py-6 mt-4 md:mt-8 lg:mt-12 mb-0 md:mb-0 border-t border-white pt-6">
         <p className="text-sm">
           © Copyright{" "}
           <a

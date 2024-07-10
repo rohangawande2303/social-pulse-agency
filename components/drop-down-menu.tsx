@@ -40,9 +40,9 @@ const DropDownMenu: React.FC<DropDownMenuProps> = ({
         <Link href="/#GraphicDesign" className="text-black text-2xl">
           About Us
         </Link>
-        <Link href="/pricing" className="text-black text-2xl">
+        {/* <Link href="/pricing" className="text-black text-2xl">
           Pricing
-        </Link>
+        </Link> */}
         <Link href="/contact" className="text-black text-2xl">
           Contact
         </Link>

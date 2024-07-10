@@ -5,7 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
-import WebsiteDesign from "./website-design";
+// import WebsiteDesign from "./website-design";
 import GraphicDesign from "./graphic-design";
 // import Brands from "./brands";
 import Services from "./services";

@@ -17,18 +17,15 @@ const GraphicDesign = () => {
       </div>
 
       <div className="flex flex-col md:flex-row items-center justify-center mt-10 md:space-x-1">
-        {" "}
         {/* Reduced spacing */}
         <motion.div
           initial={{ y: 100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          className="w-full md:w-1/2 flex justify-center px-2 md:px-0"
+          className="w-full md:w-1/3 flex justify-center"
         >
-          {" "}
-          {/* Reduced padding */}
           <ThreeDCardExample />
         </motion.div>
-        <div className="w-full md:w-1/2 mt-10 md:mt-0 px-4 md:px-8">
+        <div className="w-full md:w-1/2 mt-10 md:mt-0 flex flex-col justify-center">
           <div className="text-xl md:text-2xl text-neutral-300 text-center md:text-left">
             We're Social Pulse, a digital marketing agency fueled by passion and
             powered by expertise. We craft magnetic campaigns and data-driven
@@ -36,7 +33,7 @@ const GraphicDesign = () => {
             us as your secret weapon in the ever-evolving digital jungle.
           </div>
           <div className="text-xl md:text-2xl text-neutral-300 text-center md:text-left mt-4">
-            Ready to conquer the online world? Let's chat!.
+            Ready to conquer the online world? Let's chat !.
           </div>
         </div>
       </div>
