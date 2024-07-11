@@ -1,47 +1,42 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
-// import WebsiteDesign from "./website-design";
 import GraphicDesign from "./graphic-design";
-// import Brands from "./brands";
 import Services from "./services";
 import { InfiniteMovingCardsDemo } from "./snippets/infinite-moving-card-snippet";
 
-export default function Home() {
-  const [displayText, setDisplayText] = useState("");
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [loop, setLoop] = useState(0);
-  const [typingSpeed, setTypingSpeed] = useState(150);
-  const [showSurprise, setShowSurprise] = useState(false);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const words = [
-    "With Stunning Websites!",
-    "Engaging Social Media Marketing!",
-    "Powerful Google My Business Optimization!",
-    "E-commerce Boost: Sell More Online!",
-    "Content Marketing Magic: Attract & Engage!",
-    "Targeted Ads That Convert: Reach Your Ideal Audience!",
-    "SEO Optimization for Top Rankings: Get Found Online!",
-  ];
+const words = [
+  "Stunning Creatives!",
+  "Social Media Marketing!",
+  "Google My Business Optimization!",
+  "E-commerce Boost",
+  "Content Marketing",
+  "Targeted Ads That Convert",
+  "SEO Optimization",
+];
 
-  const [isDropdownVisible, setDropdownVisible] = useState(false);
+export default function Home() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) =>
+        prevIndex === words.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 3000); // Change text every 3 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
   const websiteDesignRef = useRef<HTMLDivElement>(null);
   const graphicDesignRef = useRef<HTMLDivElement>(null);
   const shopifyStoresRef = useRef<HTMLDivElement>(null);
   const brandsRef = useRef<HTMLDivElement>(null);
   const servicesRef = useRef<HTMLDivElement>(null);
-
-  const toggleDropdown = () => {
-    setDropdownVisible(!isDropdownVisible);
-  };
-
-  const closeDropdown = () => {
-    setDropdownVisible(false);
-  };
 
   const scrollToWebsiteDesign = () => {
     websiteDesignRef.current?.scrollIntoView({
@@ -67,47 +62,6 @@ export default function Home() {
     servicesRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
-  useEffect(() => {
-    const handleType = () => {
-      const currentIndex = loop % words.length;
-      const fullText = words[currentIndex];
-
-      setDisplayText(
-        isDeleting
-          ? fullText.substring(0, displayText.length - 1)
-          : fullText.substring(0, displayText.length + 1)
-      );
-
-      if (!isDeleting && displayText === fullText) {
-        setTypingSpeed(2000);
-        setIsDeleting(true);
-      } else if (isDeleting && displayText === "") {
-        setIsDeleting(false);
-        setLoop(loop + 1);
-        setTypingSpeed(150);
-      } else {
-        setTypingSpeed(isDeleting ? 100 : 150);
-      }
-    };
-
-    const typingInterval = setTimeout(handleType, typingSpeed);
-
-    return () => clearTimeout(typingInterval);
-  }, [displayText, isDeleting, loop, typingSpeed, words]);
-
-  useEffect(() => {
-    if (loop >= words.length) {
-      setTimeout(() => {
-        setShowSurprise(true);
-        setTimeout(() => {
-          setShowSurprise(false);
-          setLoop(0);
-        }, 5000); // Surprise text duration
-      }, 2000); // Delay before showing surprise text
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [loop]);
-
   return (
     <div className="w-full md:items-center md:justify-center bg-black antialiased relative overflow-hidden">
       <Navbar
@@ -128,39 +82,36 @@ export default function Home() {
               transition={{ delay: 0.25 }}
               className="flex flex-col items-center"
             >
-              {!showSurprise && (
-                <>
-                  <h1 className="text-4xl lg:text-6xl font-extrabold mb-6 leading-tight lg:leading-tight">
-                    Craft Your Brand Story . . .
-                    <br />
-                    <span className="dynamic-text text-[#8103FF]">
-                      {displayText}
-                    </span>
-                  </h1>
-                  <p className="text-lg text-white mb-4 mt-4">
-                    SocialPulse has experts who are experienced and know how and
-                    what specification of a company or a product are to be
-                    showcased.
-                  </p>
-                  <Link
-                    href={"/book"}
-                    className="cursor-pointer flex items-center justify-center border rounded-full w-48 p-2 mx-auto my-4 text-white"
-                  >
-                    Book a call
-                  </Link>
-                </>
-              )}
-
-              {showSurprise && (
-                <motion.h2
-                  className="text-3xl lg:text-5xl font-extrabold text-yellow-400 mt-4 animate-pulse"
-                  initial={{ opacity: 0, scale: 0.5 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 1 }}
+              <h1 className="text-4xl lg:text-6xl font-extrabold mb-6 leading-tight lg:leading-tight">
+                Craft Your Brand Story . . .
+              </h1>
+              <div className="relative w-full overflow-hidden h-16">
+                <div
+                  className="absolute inset-0 flex transition-transform duration-2000 ease-in-out"
+                  style={{ transform: `translateX(-${currentIndex * 100}%)` }}
                 >
-                  Lets Grow Your Business Online!
-                </motion.h2>
-              )}
+                  {words.map((word, index) => (
+                    <div
+                      key={index}
+                      className="flex-shrink-0 w-full flex items-center justify-center text-[#8103FF] text-4xl lg:text-6xl font-extrabold"
+                    >
+                      {word}
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <p className="text-lg text-white mb-4 mt-4 pt-4 md:pt-8">
+                SocialPulse has experts who are experienced and know how and
+                what specification of a company or a product are to be
+                showcased.
+              </p>
+              <Link
+                href="/book"
+                className="cursor-pointer flex items-center justify-center border rounded-full w-48 p-2 mx-auto my-4 text-white"
+                prefetch={true} // Enable prefetching for faster navigation
+              >
+                Book a call
+              </Link>
             </motion.div>
           </div>
         </section>

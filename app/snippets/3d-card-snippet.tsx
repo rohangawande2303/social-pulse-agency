@@ -2,26 +2,23 @@
 
 import Image from "next/image";
 import React from "react";
-import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
 
 export function ThreeDCardExample() {
   return (
-    <CardContainer className="inter-var">
-      <CardBody className="bg-gray-50 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[40rem] md:w-[50rem] lg:w-[20rem] h-auto rounded-xl p-6 border">
-        <CardItem translateZ="100" className="w-full">
-          <Image
-            src="/images/founder-img-small.jpg"
-            height="1500"
-            width="1500"
-            className="h-60 md:h-80 lg:h-96 w-full object-cover rounded-xl group-hover/card:shadow-xl" // Adjusted heights
-            alt="thumbnail"
-          />
-          <div className="text-center mt-4 text-lg font-bold text-black-300">
-            Founder - Rishabh Mishra
-          </div>
-        </CardItem>
-      </CardBody>
-    </CardContainer>
+    <div className="relative group w-auto sm:w-[40rem] md:w-[50rem] lg:w-[20rem] h-auto rounded-xl p-6 border bg-gradient-to-b from-[#171717] via-[#1E1E1E] to-[#171717] dark:border-white/[0.2] border-black/[0.1] dark:bg-black dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1]">
+      <div className="w-full transform transition-transform duration-500 group-hover:translate-z-10">
+        <Image
+          src="/images/founder-img-small.jpg"
+          height="1500"
+          width="1500"
+          className="h-60 md:h-80 lg:h-96 w-full object-cover rounded-xl mb-2"
+          alt="thumbnail"
+        />
+        {/* <div className="text-center mt-2 text-lg font-bold text-neutral-300">
+          Founder - Rishabh Mishra
+        </div> */}
+      </div>
+    </div>
   );
 }
 

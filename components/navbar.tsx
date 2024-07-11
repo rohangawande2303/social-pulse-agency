@@ -1,8 +1,10 @@
 "use client";
+
 import { useState } from "react";
 import { AlignJustify, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation"; // Import useRouter
 import DropDownMenu from "./drop-down-menu";
 
 interface NavbarProps {
@@ -10,7 +12,7 @@ interface NavbarProps {
   scrollToGraphicDesign: () => void;
   scrollToShopifyStores: () => void;
   scrollToBrands: () => void;
-  scrollToServices: () => void; // Define scrollToServices function
+  scrollToServices: () => void;
 }
 
 const Navbar = ({
@@ -18,9 +20,10 @@ const Navbar = ({
   scrollToGraphicDesign,
   scrollToShopifyStores,
   scrollToBrands,
-  scrollToServices, // Add scrollToServices to props
+  scrollToServices,
 }: NavbarProps) => {
   const [isDropDownVisible, setIsDropDownVisible] = useState(false);
+  const router = useRouter();
 
   const toggleDropDown = () => {
     setIsDropDownVisible(!isDropDownVisible);
@@ -28,6 +31,23 @@ const Navbar = ({
 
   const closeDropDown = () => {
     setIsDropDownVisible(false);
+  };
+
+  const handleScrollOrRedirect = (scrollFunction: () => void) => {
+    if (window.location.pathname === "/") {
+      // If on homepage, scroll to the section
+      scrollFunction();
+    } else {
+      // If not on homepage, redirect to homepage and then scroll
+      router.push("/"); // Redirect to homepage
+
+      // Wait for the navigation to complete, then scroll
+      setTimeout(() => {
+        if (window.location.pathname === "/") {
+          scrollFunction();
+        }
+      }, 500); // Adjust the timeout as needed
+    }
   };
 
   return (
@@ -40,13 +60,13 @@ const Navbar = ({
                 priority
                 src="/logo/logo3.png"
                 alt="Logo"
-                width={90} // Reduced the size slightly
-                height={90} // Reduced the size slightly
-                className="w-10 h-10 md:w-16 md:h-16" // Adjusted sizes for different screen sizes
+                width={90}
+                height={90}
+                className="w-10 h-10 md:w-16 md:h-16"
               />
             </Link>
             <Link href="/" className="text-white text-xl md:text-2xl ml-3">
-              Social Pulse
+              Social Pulse Agency
             </Link>
           </div>
           <div
@@ -60,14 +80,18 @@ const Navbar = ({
             <Link href="/" className="hover:text-gray-50">
               Home
             </Link>
-            <div onClick={scrollToGraphicDesign} className="hover:text-gray-50">
+            <div
+              onClick={() => handleScrollOrRedirect(scrollToGraphicDesign)}
+              className="hover:text-gray-50"
+            >
               About Us
             </div>
-
-            <div onClick={scrollToBrands} className="hover:text-gray-50">
+            <div
+              onClick={() => handleScrollOrRedirect(scrollToBrands)}
+              className="hover:text-gray-50"
+            >
               Services
             </div>
-
             <Link href="/contact" className="hover:text-gray-50">
               Contact
             </Link>
@@ -75,7 +99,6 @@ const Navbar = ({
 
           <div className="flex md:hidden">
             {isDropDownVisible ? (
-              // display an x icon when the drop is visible
               <div
                 onClick={toggleDropDown}
                 className="w-8 h-8 text-slate-300 cursor-pointer"
@@ -83,7 +106,7 @@ const Navbar = ({
                 <X />
                 <DropDownMenu
                   onClose={closeDropDown}
-                  scrollToServices={scrollToServices} // Pass scrollToServices
+                  scrollToServices={scrollToServices}
                 />
               </div>
             ) : (
@@ -95,19 +118,20 @@ const Navbar = ({
           </div>
 
           <div className="hidden md:flex">
-            <Link
-              href="/contact"
+            <a
+              href="https://api.whatsapp.com/send?phone=8451951123&text=I%20came%20across%20your%20website%20,I%20would%20like%20to%20have%20more%20information%20about%20your%20business"
+              target="_blank"
+              rel="noopener noreferrer"
               className="
               inline-flex h-12 animate-shimmer items-center justify-center 
               rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] 
               bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-colors
                focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2
                 focus:ring-offset-slate-50
-
               "
             >
-              Contact
-            </Link>
+              What&apos;s App
+            </a>
           </div>
         </div>
       </div>

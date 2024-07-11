@@ -29,11 +29,6 @@ const testimonials = [
     title: "Air Cool Services",
   },
   {
-    quote: "All that we see or seem is but a dream within a dream.",
-    name: "Edgar Allan Poe",
-    title: "A Dream Within a Dream",
-  },
-  {
     quote:
       "Social Media & GMB Success for Shree Ram Mobile: Shree Ram Mobile is thrilled with the results achieved through Social Pulse's social media marketing and GMB services.  Within 6 months, Social Pulse's targeted strategies not only increased mobile sales by 45% but also significantly boosted brand presence in Thane City.  Social Pulse's content creation expertise further enhanced the impact of the campaign.",
     name: "Ram",

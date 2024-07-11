@@ -5,6 +5,7 @@ import {
   FaInstagram,
   FaLinkedinIn,
   FaPhoneSquareAlt,
+  FaYoutube,
 } from "react-icons/fa";
 import { FaThreads } from "react-icons/fa6";
 import Image from "next/image";
@@ -14,12 +15,12 @@ const Footer = () => {
     <footer className="pt-12 relative bg-black text-white">
       <div className="mx-auto max-w-7xl p-6 lg:px-8">
         <div className="flex justify-between items-center md:items-start gap-y-8 flex-col sm:flex-row text-center md:text-start border-t border-white pt-6">
-          <div className="flex-1">
+          <div className="flex-1 sm:text-left">
             <h2 className="text-2xl md:text-3xl font-medium">
               Interested To Get Our Featured Service
             </h2>
           </div>
-          <div>
+          <div className="text-center sm:text-center">
             <a href="tel:+918451951123">
               <button className="primary-btn border border-white rounded-full py-2 px-4 text-lg hover:bg-white hover:text-black transition-all duration-300 shadow-lg">
                 Call us Now
@@ -29,22 +30,26 @@ const Footer = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-y-8 pt-20">
-          <div className="lg:pr-8 text-center md:text-start">
+          <div className="lg:pr-8 text-center md:text-start flex items-center">
             <Image
               src="/logo/logo3.png"
               alt="WebDev"
-              className="mx-auto md:mx-0"
-              width={80}
-              height={40}
+              className="mx-auto md:mx-0 pb-16"
+              width={50}
+              height={20}
             />
-            <p className="text-base mt-4 hover:text-gray-300 transition-all duration-300">
-              We&apos;re Social Pulse, a digital marketing agency fueled by
-              passion and powered by expertise. We craft magnetic campaigns and
-              data-driven strategies to amplify your brand voice and ignite
-              growth.
-            </p>
+            <div className="ml-3">
+              <div className="text-white text-xl md:text-2xl">
+                Social Pulse Agency
+              </div>
+              <p className="text-base mt-2 hover:text-gray-300 transition-all duration-300 sm:text-center md:text-left">
+                We&apos;re Social Pulse, a digital marketing agency fueled by
+                passion and powered by expertise.
+              </p>
+            </div>
           </div>
-          <div className="mx-auto text-center md:text-start">
+
+          <div className="mx-auto text-center md:text-start sm:text-center">
             <h3 className="text-xl font-medium mb-6">Quick Links</h3>
             <ul className="list-disc list-inside">
               <li className="my-2 text-lg hover:text-gray-300 transition-all duration-300">
@@ -62,70 +67,80 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div className="mx-auto text-center md:text-start">
-            <h3 className="text-2xl font-medium mb-6">Get In Touch</h3>
-            <ul>
-              <li className="my-2 hover:text-gray-300 transition-all duration-300">
-                <a
-                  className="text-base flex items-center justify-center md:justify-start gap-2"
-                  href="tel:1234567890"
-                >
-                  <FaPhoneSquareAlt className="text-xl" /> +91-8451951123
-                </a>
-              </li>
-              <li className="my-2 hover:text-gray-300 transition-all duration-300">
-                <a
-                  className="text-base flex items-center justify-center md:justify-start gap-2"
-                  href="socialpulse23@gmail.com"
-                >
-                  <FaEnvelope className="text-xl" /> socialpulse23@gmail.com
-                </a>
-              </li>
-              <li className="mt-8">
-                <ul className="flex justify-center gap-8 md:gap-12 items-center">
-                  <li>
-                    <a
-                      className="text-2xl hover:text-gray-300 transition-all duration-300"
-                      href="https://www.facebook.com/profile.php?id=61553120560771&mibextid=ZbWKwL"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <FaFacebook className="w-6 h-6" />
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      className="text-2xl hover:text-gray-300 transition-all duration-300"
-                      href="https://www.threads.net/@socialpulseagency.in"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <FaThreads className="w-6 h-6" />
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      className="text-2xl hover:text-gray-300 transition-all duration-300"
-                      href="https://www.instagram.com/socialpulseagency.in/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <FaInstagram className="w-6 h-6" />
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      className="text-2xl hover:text-gray-300 transition-all duration-300"
-                      href="https://www.linkedin.com/company/social-pulse-agency/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <FaLinkedinIn className="w-6 h-6" />
-                    </a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
+          <div className="mx-auto text-center md:text-start sm:text-center">
+              <h3 className="text-2xl font-medium mb-6">Get In Touch</h3>
+              <ul>
+                <li className="my-2 hover:text-gray-300 transition-all duration-300">
+                  <a
+                    className="text-base flex items-center justify-center md:justify-start gap-2 sm:text-center"
+                    href="8451951123"
+                  >
+                    <FaPhoneSquareAlt className="text-xl" /> +91-8451951123
+                  </a>
+                </li>
+                <li className="my-2 hover:text-gray-300 transition-all duration-300">
+                  <a
+                    className="text-base flex items-center justify-center md:justify-start gap-2 sm:text-center"
+                    href="socialpulse23@gmail.com"
+                  >
+                    <FaEnvelope className="text-xl" /> socialpulse23@gmail.com
+                  </a>
+                </li>
+                <li className="mt-8">
+                  <ul className="flex justify-center gap-8 md:gap-8 items-center sm:text-center">
+                    <li>
+                      <a
+                        className="text-2xl hover:text-gray-300 transition-all duration-300"
+                        href="https://www.facebook.com/profile.php?id=61553120560771&mibextid=ZbWKwL"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <FaFacebook className="w-6 h-6" />
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="text-2xl hover:text-gray-300 transition-all duration-300"
+                        href="https://www.threads.net/@socialpulseagency.in"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <FaThreads className="w-6 h-6" />
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="text-2xl hover:text-gray-300 transition-all duration-300"
+                        href="https://www.instagram.com/socialpulseagency.in/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <FaInstagram className="w-6 h-6" />
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="text-2xl hover:text-gray-300 transition-all duration-300"
+                        href="https://www.linkedin.com/company/social-pulse-agency/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <FaLinkedinIn className="w-6 h-6" />
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="text-2xl hover:text-gray-300 transition-all duration-300"
+                        href="https://www.youtube.com/@SocialPulse23"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <FaYoutube className="w-6 h-6" />
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
           </div>
         </div>
       </div>
