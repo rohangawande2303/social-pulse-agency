@@ -87,55 +87,55 @@ const Footer = () => {
                 </a>
               </li>
               <li className="mt-8">
-                <ul className="flex justify-center gap-8 md:gap-8 items-center">
+                <ul className="flex justify-center gap-6 md:gap-6 items-center">
                   <li>
                     <a
-                      className="text-2xl hover:text-gray-300 transition-all duration-300"
+                      className="flex items-center justify-center w-10 h-10 text-xl rounded-full border border-white transition-all duration-300 hover:bg-gradient-to-r from-purple-500 to-indigo-500"
                       href="https://www.facebook.com/profile.php?id=61553120560771&mibextid=ZbWKwL"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <FaFacebook className="w-6 h-6" />
+                      <FaFacebook className="w-5 h-5 text-white" />
                     </a>
                   </li>
                   <li>
                     <a
-                      className="text-2xl hover:text-gray-300 transition-all duration-300"
+                      className="flex items-center justify-center w-10 h-10 text-xl rounded-full border border-white transition-all duration-300 hover:bg-gradient-to-r from-purple-500 to-indigo-500"
                       href="https://www.threads.net/@socialpulseagency.in"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <FaThreads className="w-6 h-6" />
+                      <FaThreads className="w-5 h-5 text-white" />
                     </a>
                   </li>
                   <li>
                     <a
-                      className="text-2xl hover:text-gray-300 transition-all duration-300"
+                      className="flex items-center justify-center w-10 h-10 text-xl rounded-full border border-white transition-all duration-300 hover:bg-gradient-to-r from-purple-500 to-indigo-500"
                       href="https://www.instagram.com/socialpulseagency.in/"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <FaInstagram className="w-6 h-6" />
+                      <FaInstagram className="w-5 h-5 text-white" />
                     </a>
                   </li>
                   <li>
                     <a
-                      className="text-2xl hover:text-gray-300 transition-all duration-300"
+                      className="flex items-center justify-center w-10 h-10 text-xl rounded-full border border-white transition-all duration-300 hover:bg-gradient-to-r from-purple-500 to-indigo-500"
                       href="https://www.linkedin.com/company/social-pulse-agency/"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <FaLinkedinIn className="w-6 h-6" />
+                      <FaLinkedinIn className="w-5 h-5 text-white" />
                     </a>
                   </li>
                   <li>
                     <a
-                      className="text-2xl hover:text-gray-300 transition-all duration-300"
+                      className="flex items-center justify-center w-10 h-10 text-xl rounded-full border border-white transition-all duration-300 hover:bg-gradient-to-r from-purple-500 to-indigo-500"
                       href="https://www.youtube.com/@SocialPulse23"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <FaYoutube className="w-6 h-6" />
+                      <FaYoutube className="w-5 h-5 text-white" />
                     </a>
                   </li>
                 </ul>
