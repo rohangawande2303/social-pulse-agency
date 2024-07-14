@@ -85,7 +85,7 @@ export default function Home() {
               <h1 className="text-4xl lg:text-6xl font-extrabold mb-6 leading-tight lg:leading-tight">
                 Craft Your Brand Story . . .
               </h1>
-              <div className="relative w-full overflow-hidden h-16">
+              <div className="relative w-full overflow-hidden h-28 md:h-24">
                 <div
                   className="absolute inset-0 flex transition-transform duration-2000 ease-in-out"
                   style={{ transform: `translateX(-${currentIndex * 100}%)` }}
