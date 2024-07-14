@@ -7,8 +7,8 @@ import "./globals.css";
 const font = Poppins({ subsets: ["latin"], weight: "400" });
 
 export const metadata: Metadata = {
-  title:
-    "Grow Your Business Online with Social Pulse - Top Digital Marketing Agency",
+  title: "Social Pulse Agency ",
+  // "Grow Your Business Online with Social Pulse - Top Digital Marketing Agency",
   description:
     "Need a proven digital marketing strategy? Social Pulse Agency offers data-driven SEO, social media, web design & more to attract new customers, boost website traffic & sales. Free Consultation!",
 };
