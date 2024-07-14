@@ -72,8 +72,8 @@ export default function Home() {
         scrollToServices={scrollToServices}
       />
 
-      <div className="pt-2 md:pt-14">
-        <section className="app__hero relative bg-black text-white min-h-screen flex items-center justify-center pt-2 md:pt-0">
+      <div className="md:pt-10">
+        <section className="app__hero relative bg-black text-white min-h-screen flex items-center justify-center md:pt-0">
           <div className="container mx-auto p-6 lg:px-8 text-center">
             <motion.div
               initial={{ opacity: 0, y: 15 }}
@@ -82,7 +82,7 @@ export default function Home() {
               transition={{ delay: 0.25 }}
               className="flex flex-col items-center"
             >
-              <h1 className="text-4xl lg:text-6xl font-extrabold mb-6 leading-tight lg:leading-tight">
+              <h1 className="text-4xl lg:text-6xl font-extrabold mb-8 leading-tight lg:leading-tight mt-0 md:mt-14">
                 Craft Your Brand Story . . .
               </h1>
               <div className="relative w-full overflow-hidden h-28 md:h-24">
@@ -100,7 +100,7 @@ export default function Home() {
                   ))}
                 </div>
               </div>
-              <p className="text-lg text-white mb-4 mt-4 pt-4 md:pt-8">
+              <p className="hidden md:block text-lg text-white mb-4 pt-4 md:pt-8">
                 SocialPulse has experts who are experienced and know how and
                 what specification of a company or a product are to be
                 showcased.
@@ -111,6 +111,15 @@ export default function Home() {
                 prefetch={true} // Enable prefetching for faster navigation
               >
                 Book a call
+              </Link>
+              <Link
+                href="https://api.whatsapp.com/send?phone=8451951123&text=I%20came%20across%20your%20website%20,I%20would%20like%20to%20have%20more%20information%20about%20your%20business"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="cursor-pointer flex items-center justify-center border rounded-full w-48 p-2 mx-auto my-4 text-white md:hidden"
+                prefetch={true} // Enable prefetching for faster navigation
+              >
+                WhatsApp
               </Link>
             </motion.div>
           </div>
