@@ -7,10 +7,12 @@ import "./globals.css";
 const font = Poppins({ subsets: ["latin"], weight: "400" });
 
 export const metadata: Metadata = {
-  title: "Social Pulse Agency ",
+  title: "Digital Marketing Agency in Thane | Social Pulse Agency",
+  // title: "Social Pulse Agency ",
   // "Grow Your Business Online with Social Pulse - Top Digital Marketing Agency",
   description:
-    "Need a proven digital marketing strategy? Social Pulse Agency offers data-driven SEO, social media, web design & more to attract new customers, boost website traffic & sales. Free Consultation!",
+    "Social Pulse Agency is a leading digital marketing agency in Thane serving large and small business with their customers and sales - driven marketing solutions. Our expert team of digital marketers are well equipped with market insights that help them design digital marketing strategies and solutions that help you stand out of the competition.",
+  // "Need a proven digital marketing strategy? Social Pulse Agency offers data-driven SEO, social media, web design & more to attract new customers, boost website traffic & sales. Free Consultation!",
 };
 
 export default function RootLayout({

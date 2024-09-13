@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.socialpulseagency.in
+
+# Sitemaps
+Sitemap: https://www.socialpulseagency.in/sitemap.xml
