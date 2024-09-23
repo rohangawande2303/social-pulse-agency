@@ -10,7 +10,8 @@ export const metadata: Metadata = {
   title: "Digital Marketing Agency in Thane | Social Pulse Agency",
 
   description:
-    "Social Pulse Agency is a leading digital marketing agency in Thane serving large and small business with their customers and sales - driven marketing solutions. Our expert team of digital marketers are well equipped with market insights that help them design digital marketing strategies and solutions that help you stand out of the competition.",
+    "Social Pulse Agency offers data-driven SEO, social media, and web design to attract new customers and boost sales. Free Consultation!",
+  // "Social Pulse Agency is a leading digital marketing agency in Thane serving large and small business with their customers and sales - driven marketing solutions. Our expert team of digital marketers are well equipped with market insights that help them design digital marketing strategies and solutions that help you stand out of the competition.",
 };
 
 export default function RootLayout({
