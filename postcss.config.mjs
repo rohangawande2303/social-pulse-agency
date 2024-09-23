@@ -1,4 +1,4 @@
-// postcss.config.js
+// postcss.config.mjs
 const postcssConfig = {
   plugins: {
     tailwindcss: {},
