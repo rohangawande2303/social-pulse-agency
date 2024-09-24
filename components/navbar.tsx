@@ -52,20 +52,27 @@ const Navbar = ({
 
   return (
     <>
-      <div className="fixed top-0 w-full z-50 bg-black">
+      <nav
+        className="fixed top-0 w-full z-50 bg-black"
+        aria-label="Main Navigation"
+      >
         <div className="p-4 md:p-6 lg:px-8 flex items-center justify-between md:justify-around">
           <div className="flex items-center">
-            <Link className="cursor-pointer" href="/">
+            <Link className="cursor-pointer" href="/" aria-label="Homepage">
               <Image
                 priority
                 src="/logo/logo3.png"
-                alt="Logo"
+                alt="Social Pulse Agency Logo"
                 width={90}
                 height={90}
                 className="w-auto h-10 md:w-auto md:h-16"
               />
             </Link>
-            <Link href="/" className="text-white text-xl md:text-2xl ml-3">
+            <Link
+              href="/"
+              className="text-white text-xl md:text-2xl ml-3"
+              aria-label="Visit Social Pulse Agency"
+            >
               Social Pulse Agency
             </Link>
           </div>
@@ -77,22 +84,28 @@ const Navbar = ({
                bg-gradient-to-b from-neutral-50
                 to bg-neutral-400 bg-opacity-50 text-lg"
           >
-            <Link href="/" className="hover:text-gray-50">
+            <Link href="/" className="hover:text-gray-50" aria-label="Home">
               Home
             </Link>
             <div
               onClick={() => handleScrollOrRedirect(scrollToGraphicDesign)}
-              className="hover:text-gray-50"
+              className="hover:text-gray-50 cursor-pointer"
+              aria-label="About Us"
             >
               About Us
             </div>
             <div
               onClick={() => handleScrollOrRedirect(scrollToBrands)}
-              className="hover:text-gray-50"
+              className="hover:text-gray-50 cursor-pointer"
+              aria-label="Services"
             >
               Services
             </div>
-            <Link href="/contact" className="hover:text-gray-50">
+            <Link
+              href="/contact"
+              className="hover:text-gray-50"
+              aria-label="Contact Us"
+            >
               Contact
             </Link>
           </div>
@@ -129,134 +142,16 @@ const Navbar = ({
                focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2
                 focus:ring-offset-slate-50
               "
+              aria-label="Contact us via WhatsApp"
             >
               What&apos;s App
             </a>
           </div>
         </div>
-      </div>
+      </nav>
       <div className="pt-20 md:pt-24">{/* Main content starts here */}</div>
     </>
   );
 };
 
 export default Navbar;
-
-// "use client";
-// import { useState } from "react";
-// import { motion } from "framer-motion";
-// import { AlignJustify, X } from "lucide-react";
-
-// import Image from "next/image";
-// import Link from "next/link";
-// import DropDownMenu from "./drop-down-menu";
-
-// interface NavbarProps {
-//   scrollToWebsiteDesign: () => void;
-//   scrollToGraphicDesign: () => void;
-//   scrollToShopifyStores: () => void;
-//   scrollToBrands: () => void;
-//   scrollToServices: () => void; // Define scrollToServices function
-// }
-
-// const Navbar = ({
-//   scrollToWebsiteDesign,
-//   scrollToGraphicDesign,
-//   scrollToShopifyStores,
-//   scrollToBrands,
-//   scrollToServices, // Add scrollToServices to props
-// }: NavbarProps) => {
-//   const [isDropDownVisible, setIsDropDownVisible] = useState(false);
-
-//   const toggleDropDown = () => {
-//     setIsDropDownVisible(!isDropDownVisible);
-//   };
-
-//   const closeDropDown = () => {
-//     setIsDropDownVisible(false);
-//   };
-
-//   return (
-//     <div>
-//       <div className="p-6 md:p-10 flex items-center justify-between z-50">
-//         <div>
-//           <Link className="cursor-pointer" href="/">
-//             <Image
-//               priority
-//               src="/logo/logo3.png"
-//               alt="Logo"
-//               width={100}
-//               height={100}
-//               className="w-10 h-10 md:w-14 md:h-14"
-//             />
-//           </Link>
-//         </div>
-//         <div
-//           className="cursor-pointer hidden
-//             md:flex space-x-10 items-center
-//              text-slate-300 text-center
-//              bg-clip-text text-transparent
-//              bg-gradient-to-b from-neutral-50
-//               to bg-neutral-400 bg-opacity-50"
-//         >
-//           <div onClick={scrollToWebsiteDesign} className="hover:text-gray-50">
-//             Home
-//           </div>
-//           <div onClick={scrollToGraphicDesign} className="hover:text-gray-50">
-//             About Us
-//           </div>
-
-//           {/* <div onClick={scrollToShopifyStores} className="hover:text-gray-50">
-//             Shopify Stores
-//           </div> */}
-//           <div onClick={scrollToBrands} className="hover:text-gray-50">
-//             Testimonials
-//           </div>
-
-//           <Link href="/contact" className="hover:text-gray-50">
-//             Contact
-//           </Link>
-//         </div>
-
-//         <div className="flex md:hidden">
-//           {isDropDownVisible ? (
-//             // display an x icon when the drop is visible
-//             <div
-//               onClick={toggleDropDown}
-//               className="w-8 h-8 text-slate-300 cursor-pointer"
-//             >
-//               <X />
-//               <DropDownMenu
-//                 onClose={closeDropDown}
-//                 scrollToServices={scrollToServices} // Pass scrollToServices
-//               />
-//             </div>
-//           ) : (
-//             <AlignJustify
-//               onClick={toggleDropDown}
-//               className="w-8 h-8 text-slate-300 cursor-pointer"
-//             />
-//           )}
-//         </div>
-
-//         <div className="hidden md:flex">
-//           <Link
-//             href="/contact"
-//             className="
-//             inline-flex h-12 animate-shimmer items-center justify-center
-//             rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)]
-//             bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-colors
-//              focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2
-//               focus:ring-offset-slate-50
-
-//             "
-//           >
-//             Contact
-//           </Link>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Navbar;
