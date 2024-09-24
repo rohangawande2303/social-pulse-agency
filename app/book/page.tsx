@@ -13,10 +13,7 @@ const BookMeeting = () => {
           name="description"
           content="Schedule a 30-minute consultation with Social Pulse to discuss your digital marketing needs."
         />
-        <link
-          rel="canonical"
-          href="https://socialpulseagency.in/book-meeting"
-        />
+        <link rel="canonical" href="https://socialpulseagency.in/book" />
         {/* Add other SEO tags here as needed */}
       </Head>
 
