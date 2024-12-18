@@ -112,7 +112,7 @@ const Navbar = ({
           {/* Add the Call Us Now Button for larger screens */}
           <div className="hidden md:block text-center sm:text-centerx">
             <a href="tel:+918451951123" aria-label="Call us now">
-              <button className="primary-btn border border-white text-white rounded-full py-2 px-4 text-lg hover:bg-white hover:text-black transition-all duration-300 shadow-lg">
+              <button className="primary-btn border border-white text-white rounded-full py-2 px-4 text-sm hover:bg-white hover:text-black transition-all duration-300 shadow-lg">
                 +91-8451951123
               </button>
             </a>
