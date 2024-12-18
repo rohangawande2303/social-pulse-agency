@@ -109,6 +109,14 @@ const Navbar = ({
               Contact
             </Link>
           </div>
+          {/* Add the Call Us Now Button for larger screens */}
+          <div className="hidden md:block text-center sm:text-centerx">
+            <a href="tel:+918451951123" aria-label="Call us now">
+              <button className="primary-btn border border-white text-white rounded-full py-2 px-4 text-lg hover:bg-white hover:text-black transition-all duration-300 shadow-lg">
+                +91-8451951123
+              </button>
+            </a>
+          </div>
 
           <div className="flex md:hidden">
             {isDropDownVisible ? (
@@ -135,13 +143,7 @@ const Navbar = ({
               href="https://api.whatsapp.com/send?phone=8451951123&text=I%20came%20across%20your%20website%20,I%20would%20like%20to%20have%20more%20information%20about%20your%20business"
               target="_blank"
               rel="noopener noreferrer"
-              className="
-              inline-flex h-12 animate-shimmer items-center justify-center 
-              rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] 
-              bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-colors
-               focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2
-                focus:ring-offset-slate-50
-              "
+              className="inline-flex h-12 animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"
               aria-label="Contact us via WhatsApp"
             >
               What&apos;s App
@@ -149,6 +151,7 @@ const Navbar = ({
           </div>
         </div>
       </nav>
+
       <div className="pt-20 md:pt-24">{/* Main content starts here */}</div>
     </>
   );

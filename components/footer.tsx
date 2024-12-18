@@ -27,7 +27,7 @@ const Footer = () => {
               </button>
             </a>
           </div>
-        </div>
+        </div> 
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-y-8 pt-20">
           <div className="lg:pr-8 text-center md:text-start flex flex-col items-center md:flex-row md:items-center">
