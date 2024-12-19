@@ -8,6 +8,7 @@ import Footer from "@/components/footer";
 import GraphicDesign from "./graphic-design";
 import Services from "./services";
 import { InfiniteMovingCardsDemo } from "./snippets/infinite-moving-card-snippet";
+import LocationSection from "./LocationSection";
 
 const words = [
   "Stunning Creatives!",
@@ -134,6 +135,7 @@ export default function Home() {
           <Services />
         </div>
         <InfiniteMovingCardsDemo />
+        <LocationSection />
         <Footer />
       </div>
     </div>
