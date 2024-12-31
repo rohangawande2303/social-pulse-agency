@@ -11,7 +11,6 @@ import { InfiniteMovingCardsDemo } from "./snippets/infinite-moving-card-snippet
 import LocationSection from "./LocationSection";
 import React from "react";
 
-// Words for the carousel
 const words = [
   "Stunning Creatives!",
   "Social Media Marketing!",
@@ -73,6 +72,9 @@ export default function Home() {
   const scrollToServices = () =>
     servicesRef.current?.scrollIntoView({ behavior: "smooth" });
 
+  // Check if it's a mobile device (optional for improved experience)
+  const isMobile = typeof window !== "undefined" && window.innerWidth <= 768;
+
   return (
     <div className="w-full md:items-center md:justify-center bg-black antialiased relative overflow-hidden">
       <Navbar
@@ -86,18 +88,24 @@ export default function Home() {
       <div className="">
         <section className="app__hero relative bg-black text-white min-h-screen flex items-center justify-center md:pt-0">
           <div className="container mx-auto p-6 lg:px-8 text-center">
-            {/* Start with a non-animated view for fast LCP */}
+            {/* Hero heading (LCP element) */}
             <h1 className="text-4xl lg:text-6xl font-extrabold mb-8 leading-tight lg:leading-tight mt-0 md:mt-14">
               Craft Your Brand Story . . .
             </h1>
-            {/* MemoizedWords without motion initially */}
+
+            {/* Memoized Words with no initial animation on mobile */}
             <div className="relative w-full overflow-hidden h-28 md:h-24">
               <MemoizedWords words={words} currentIndex={currentIndex} />
             </div>
-            <p className="hidden md:block text-lg text-white mb-4 pt-4 md:pt-8">
-              At SocialPulse, our experts showcase your company&apos;s unique
-              specifications effectively.
-            </p>
+
+            {/* Lazy Load / Deferred Sections */}
+            {isMobile && (
+              <p className="hidden md:block text-lg text-white mb-4 pt-4 md:pt-8">
+                At SocialPulse, our experts showcase your company&apos;s unique
+                specifications effectively.
+              </p>
+            )}
+
             <Link
               href="/book"
               prefetch={true}
@@ -105,6 +113,7 @@ export default function Home() {
             >
               Book a Call
             </Link>
+
             <Link
               href="https://api.whatsapp.com/send?phone=8451951123&text=I%20came%20across%20your%20website%20,I%20would%20like%20to%20have%20more%20information%20about%20your%20business"
               target="_blank"
