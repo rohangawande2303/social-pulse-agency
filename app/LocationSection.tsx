@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { MapPin, Clock } from "lucide-react";
 import { motion } from "framer-motion";
@@ -41,6 +41,13 @@ const CardContent = ({
 );
 
 const LocationSection = () => {
+  const [isMapLoaded, setIsMapLoaded] = useState(false);
+
+  // Function to handle iframe lazy loading
+  const handleMapClick = () => {
+    setIsMapLoaded(true); // This triggers the map iframe to load
+  };
+
   return (
     <div className="bg-black text-white py-16">
       <motion.div
@@ -98,6 +105,7 @@ const LocationSection = () => {
               href="https://maps.app.goo.gl/swowaPiBVAYhNMkv9"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={handleMapClick} // Trigger lazy load when clicked
             >
               <motion.div
                 className="relative w-full h-[310px] overflow-hidden rounded-lg shadow-lg transition-transform hover:scale-105"
@@ -105,17 +113,20 @@ const LocationSection = () => {
                 whileTap={{ scale: 0.95 }}
               >
                 <div className="w-full h-full">
-                  <iframe
-                    width="100%"
-                    height="100%"
-                    id="gmap_canvas"
-                    src="https://maps.google.com/maps?q=Social+Pulse+Agency&t=&z=12&ie=UTF8&iwloc=&output=embed"
-                    frameBorder="0"
-                    scrolling="no"
-                    marginHeight={0}
-                    marginWidth={0}
-                    title="Social Pulse Agency Location"
-                  ></iframe>
+                  {/* Lazy-load the map iframe only when the user clicks */}
+                  {isMapLoaded && (
+                    <iframe
+                      width="100%"
+                      height="100%"
+                      id="gmap_canvas"
+                      src="https://maps.google.com/maps?q=Social+Pulse+Agency&t=&z=12&ie=UTF8&iwloc=&output=embed"
+                      frameBorder="0"
+                      scrolling="no"
+                      marginHeight={0}
+                      marginWidth={0}
+                      title="Social Pulse Agency Location"
+                    ></iframe>
+                  )}
                 </div>
                 <div
                   className="absolute inset-0 bg-transparent"
