@@ -9,7 +9,9 @@ import GraphicDesign from "./graphic-design";
 import Services from "./services";
 import { InfiniteMovingCardsDemo } from "./snippets/infinite-moving-card-snippet";
 import LocationSection from "./LocationSection";
+import React from "react"; // <-- Add React import here
 
+// Words for the carousel
 const words = [
   "Stunning Creatives!",
   "Social Media Marketing!",
@@ -20,9 +22,38 @@ const words = [
   "SEO Optimization",
 ];
 
+// Define prop types for MemoizedWords component
+interface MemoizedWordsProps {
+  words: string[];
+  currentIndex: number;
+}
+
+// MemoizedWords Component to optimize rendering
+const MemoizedWords = React.memo(
+  ({ words, currentIndex }: MemoizedWordsProps) => (
+    <div
+      className="absolute inset-0 flex transition-transform duration-2000 ease-in-out"
+      style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+    >
+      {words.map((word, index) => (
+        <div
+          key={index}
+          className="flex-shrink-0 w-full flex items-center justify-center text-[#8103FF] text-4xl lg:text-6xl font-extrabold"
+        >
+          {word}
+        </div>
+      ))}
+    </div>
+  )
+);
+
+// Set display name for the memoized component
+MemoizedWords.displayName = "MemoizedWords";
+
 export default function Home() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  // Update the index for word transitions
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) =>
@@ -33,35 +64,23 @@ export default function Home() {
     return () => clearInterval(interval);
   }, []);
 
+  // Scroll to specific sections with proper type
   const websiteDesignRef = useRef<HTMLDivElement>(null);
   const graphicDesignRef = useRef<HTMLDivElement>(null);
   const shopifyStoresRef = useRef<HTMLDivElement>(null);
   const brandsRef = useRef<HTMLDivElement>(null);
   const servicesRef = useRef<HTMLDivElement>(null);
 
-  const scrollToWebsiteDesign = () => {
-    websiteDesignRef.current?.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-      inline: "nearest",
-    });
-  };
-
-  const scrollToGraphicDesign = () => {
+  const scrollToWebsiteDesign = () =>
+    websiteDesignRef.current?.scrollIntoView({ behavior: "smooth" });
+  const scrollToGraphicDesign = () =>
     graphicDesignRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
-
-  const scrollToShopifyStores = () => {
+  const scrollToShopifyStores = () =>
     shopifyStoresRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
-
-  const scrollToBrands = () => {
+  const scrollToBrands = () =>
     brandsRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
-
-  const scrollToServices = () => {
+  const scrollToServices = () =>
     servicesRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
 
   return (
     <div className="w-full md:items-center md:justify-center bg-black antialiased relative overflow-hidden">
@@ -87,19 +106,7 @@ export default function Home() {
                 Craft Your Brand Story . . .
               </h1>
               <div className="relative w-full overflow-hidden h-28 md:h-24">
-                <div
-                  className="absolute inset-0 flex transition-transform duration-2000 ease-in-out"
-                  style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-                >
-                  {words.map((word, index) => (
-                    <div
-                      key={index}
-                      className="flex-shrink-0 w-full flex items-center justify-center text-[#8103FF] text-4xl lg:text-6xl font-extrabold"
-                    >
-                      {word}
-                    </div>
-                  ))}
-                </div>
+                <MemoizedWords words={words} currentIndex={currentIndex} />
               </div>
               <p className="hidden md:block text-lg text-white mb-4 pt-4 md:pt-8">
                 At SocialPulse, our experts showcase your company&apos;s unique
@@ -107,8 +114,8 @@ export default function Home() {
               </p>
               <Link
                 href="/book"
-                className="cursor-pointer flex items-center justify-center border rounded-full w-48 p-2 mx-auto my-4 text-white"
                 prefetch={true}
+                className="cursor-pointer flex items-center justify-center border rounded-full w-48 p-2 mx-auto my-4 text-white"
               >
                 Book a Call
               </Link>
@@ -116,8 +123,8 @@ export default function Home() {
                 href="https://api.whatsapp.com/send?phone=8451951123&text=I%20came%20across%20your%20website%20,I%20would%20like%20to%20have%20more%20information%20about%20your%20business"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="cursor-pointer flex items-center justify-center border rounded-full w-48 p-2 mx-auto my-4 text-white md:hidden"
                 prefetch={true}
+                className="cursor-pointer flex items-center justify-center border rounded-full w-48 p-2 mx-auto my-4 text-white md:hidden"
               >
                 WhatsApp
               </Link>
