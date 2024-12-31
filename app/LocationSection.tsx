@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { MapPin, Clock } from "lucide-react";
 import { motion } from "framer-motion";
@@ -43,10 +43,15 @@ const CardContent = ({
 const LocationSection = () => {
   const [isMapLoaded, setIsMapLoaded] = useState(false);
 
-  // Function to handle iframe lazy loading
+  // Ensures that the map iframe loads only when visible and clicked
   const handleMapClick = () => {
-    setIsMapLoaded(true); // This triggers the map iframe to load
+    setIsMapLoaded(true); // Trigger iframe loading on map click
   };
+
+  // Optionally, we can add an effect to preload the iframe on mount
+  useEffect(() => {
+    setIsMapLoaded(true); // Automatically trigger map loading when component mounts
+  }, []);
 
   return (
     <div className="bg-black text-white py-16">
@@ -113,8 +118,8 @@ const LocationSection = () => {
                 whileTap={{ scale: 0.95 }}
               >
                 <div className="w-full h-full">
-                  {/* Lazy-load the map iframe only when the user clicks */}
-                  {isMapLoaded && (
+                  {/* Render the iframe immediately, but only trigger its source loading when clicked */}
+                  {isMapLoaded ? (
                     <iframe
                       width="100%"
                       height="100%"
@@ -126,6 +131,10 @@ const LocationSection = () => {
                       marginWidth={0}
                       title="Social Pulse Agency Location"
                     ></iframe>
+                  ) : (
+                    <div className="flex justify-center items-center w-full h-full text-white text-lg">
+                      Click to View Map
+                    </div>
                   )}
                 </div>
                 <div
