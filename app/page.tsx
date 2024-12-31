@@ -44,6 +44,22 @@ MemoizedWords.displayName = "MemoizedWords";
 
 export default function Home() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false); // State to track if it's a mobile device
+
+  useEffect(() => {
+    // Set isMobile to true only after the component mounts (client-side)
+    setIsMobile(window.innerWidth <= 768);
+
+    // Re-check if the window size changes (for responsiveness)
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -71,9 +87,6 @@ export default function Home() {
     brandsRef.current?.scrollIntoView({ behavior: "smooth" });
   const scrollToServices = () =>
     servicesRef.current?.scrollIntoView({ behavior: "smooth" });
-
-  // Check if it's a mobile device (optional for improved experience)
-  const isMobile = typeof window !== "undefined" && window.innerWidth <= 768;
 
   return (
     <div className="w-full md:items-center md:justify-center bg-black antialiased relative overflow-hidden">
@@ -106,6 +119,7 @@ export default function Home() {
               </p>
             )}
 
+            {/* Preload "Book a Call" link for quicker navigation */}
             <Link
               href="/book"
               prefetch={true}
