@@ -9,7 +9,7 @@ import GraphicDesign from "./graphic-design";
 import Services from "./services";
 import { InfiniteMovingCardsDemo } from "./snippets/infinite-moving-card-snippet";
 import LocationSection from "./LocationSection";
-import React from "react"; // <-- Add React import here
+import React from "react";
 
 // Words for the carousel
 const words = [
@@ -22,15 +22,9 @@ const words = [
   "SEO Optimization",
 ];
 
-// Define prop types for MemoizedWords component
-interface MemoizedWordsProps {
-  words: string[];
-  currentIndex: number;
-}
-
 // MemoizedWords Component to optimize rendering
 const MemoizedWords = React.memo(
-  ({ words, currentIndex }: MemoizedWordsProps) => (
+  ({ words, currentIndex }: { words: string[]; currentIndex: number }) => (
     <div
       className="absolute inset-0 flex transition-transform duration-2000 ease-in-out"
       style={{ transform: `translateX(-${currentIndex * 100}%)` }}
@@ -47,13 +41,11 @@ const MemoizedWords = React.memo(
   )
 );
 
-// Set display name for the memoized component
 MemoizedWords.displayName = "MemoizedWords";
 
 export default function Home() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Update the index for word transitions
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) =>
@@ -64,7 +56,6 @@ export default function Home() {
     return () => clearInterval(interval);
   }, []);
 
-  // Scroll to specific sections with proper type
   const websiteDesignRef = useRef<HTMLDivElement>(null);
   const graphicDesignRef = useRef<HTMLDivElement>(null);
   const shopifyStoresRef = useRef<HTMLDivElement>(null);
@@ -92,43 +83,37 @@ export default function Home() {
         scrollToServices={scrollToServices}
       />
 
-      <div className="md:pt-10">
+      <div className="">
         <section className="app__hero relative bg-black text-white min-h-screen flex items-center justify-center md:pt-0">
           <div className="container mx-auto p-6 lg:px-8 text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 15 }}
-              transition={{ delay: 0.25 }}
-              className="flex flex-col items-center"
+            {/* Start with a non-animated view for fast LCP */}
+            <h1 className="text-4xl lg:text-6xl font-extrabold mb-8 leading-tight lg:leading-tight mt-0 md:mt-14">
+              Craft Your Brand Story . . .
+            </h1>
+            {/* MemoizedWords without motion initially */}
+            <div className="relative w-full overflow-hidden h-28 md:h-24">
+              <MemoizedWords words={words} currentIndex={currentIndex} />
+            </div>
+            <p className="hidden md:block text-lg text-white mb-4 pt-4 md:pt-8">
+              At SocialPulse, our experts showcase your company&apos;s unique
+              specifications effectively.
+            </p>
+            <Link
+              href="/book"
+              prefetch={true}
+              className="cursor-pointer flex items-center justify-center border rounded-full w-48 p-2 mx-auto my-4 text-white"
             >
-              <h1 className="text-4xl lg:text-6xl font-extrabold mb-8 leading-tight lg:leading-tight mt-0 md:mt-14">
-                Craft Your Brand Story . . .
-              </h1>
-              <div className="relative w-full overflow-hidden h-28 md:h-24">
-                <MemoizedWords words={words} currentIndex={currentIndex} />
-              </div>
-              <p className="hidden md:block text-lg text-white mb-4 pt-4 md:pt-8">
-                At SocialPulse, our experts showcase your company&apos;s unique
-                specifications effectively.
-              </p>
-              <Link
-                href="/book"
-                prefetch={true}
-                className="cursor-pointer flex items-center justify-center border rounded-full w-48 p-2 mx-auto my-4 text-white"
-              >
-                Book a Call
-              </Link>
-              <Link
-                href="https://api.whatsapp.com/send?phone=8451951123&text=I%20came%20across%20your%20website%20,I%20would%20like%20to%20have%20more%20information%20about%20your%20business"
-                target="_blank"
-                rel="noopener noreferrer"
-                prefetch={true}
-                className="cursor-pointer flex items-center justify-center border rounded-full w-48 p-2 mx-auto my-4 text-white md:hidden"
-              >
-                WhatsApp
-              </Link>
-            </motion.div>
+              Book a Call
+            </Link>
+            <Link
+              href="https://api.whatsapp.com/send?phone=8451951123&text=I%20came%20across%20your%20website%20,I%20would%20like%20to%20have%20more%20information%20about%20your%20business"
+              target="_blank"
+              rel="noopener noreferrer"
+              prefetch={true}
+              className="cursor-pointer flex items-center justify-center border rounded-full w-48 p-2 mx-auto my-4 text-white md:hidden"
+            >
+              WhatsApp
+            </Link>
           </div>
         </section>
 
