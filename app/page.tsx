@@ -10,6 +10,7 @@ import Services from "./services";
 import { InfiniteMovingCardsDemo } from "./snippets/infinite-moving-card-snippet";
 import LocationSection from "./LocationSection";
 import React from "react";
+import Brands from "./brands";
 
 const words = [
   "Stunning Creatives!",
@@ -145,10 +146,13 @@ export default function Home() {
           <GraphicDesign />
         </div>
         <div ref={shopifyStoresRef}>{/* <ShopifyStores /> */}</div>
-        <div ref={brandsRef}>{/* <Brands /> */}</div>
+        <div ref={brandsRef}>
+          <Brands />
+        </div>
         <div id="services" ref={servicesRef}>
           <Services />
         </div>
+      
         <InfiniteMovingCardsDemo />
         <LocationSection />
         <Footer />
