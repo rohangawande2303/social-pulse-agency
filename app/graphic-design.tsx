@@ -3,6 +3,7 @@
 
 import { motion } from "framer-motion";
 import { ThreeDCardExample } from "./snippets/3d-card-snippet";
+import Link from "next/link"; // Import Link component for navigation
 
 const AboutUs = () => {
   return (
@@ -55,6 +56,16 @@ const AboutUs = () => {
               Ready to conquer the online world? Let&apos;s chat!
             </p>
           </article>
+
+          {/* Button to navigate to the Founder's page */}
+          <div className="flex justify-center mt-6">
+            <Link
+              href="/rishabhmishra" // Link to the Founder's Page
+              className="flex items-center px-6 py-3 bg-gray-700 text-white font-semibold rounded-lg shadow-md hover:bg-gray-600 transition duration-300"
+            >
+              Read More About Rishabh
+            </Link>
+          </div>
         </div>
       </div>
     </section>

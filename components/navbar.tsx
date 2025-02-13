@@ -87,15 +87,22 @@ const Navbar = ({
             <Link href="/" className="hover:text-gray-50" aria-label="Home">
               Home
             </Link>
-            <div
+            <Link
+              href="/rishabhmishra"
+              className="hover:text-gray-50"
+              aria-label="About Us"
+            >
+              About Us
+            </Link>
+            {/* <div
               onClick={() => handleScrollOrRedirect(scrollToGraphicDesign)}
               className="hover:text-gray-50 cursor-pointer"
               aria-label="About Us"
             >
               About Us
-            </div>
+            </div> */}
             <div
-              onClick={() => handleScrollOrRedirect(scrollToBrands)}
+              onClick={() => handleScrollOrRedirect(scrollToServices)}
               className="hover:text-gray-50 cursor-pointer"
               aria-label="Services"
             >
