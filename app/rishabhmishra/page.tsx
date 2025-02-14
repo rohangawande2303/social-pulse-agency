@@ -1,78 +1,108 @@
-import { Metadata } from "next";
+"use client";
+import { FaLinkedin } from "react-icons/fa";
+import { motion } from "framer-motion";
+import Navbar from "../../components/navbar";
+import Footer from "../../components/footer";
+import { ThreeDCardExample } from "../../app/snippets/3d-card-snippet";
+import { metadata } from "./seo"; // Import the SEO metadata
 
-// SEO metadata for Next.js 14
-export const metadata: Metadata = {
-  metadataBase: new URL("https://www.socialpulseagency.in"),
-  title: {
-    default:
-      "Rishabh Mishra - Founder of Social Pulse Agency | Digital Marketing Expert",
-    template: "%s | Social Pulse Agency",
-  },
-  description:
-    "Meet Rishabh Mishra, the visionary founder of Social Pulse Agency, a digital marketing expert specializing in brand development, visual storytelling, and impactful strategies.",
-  keywords: [
-    "Rishabh Mishra",
-    "Social Pulse Agency",
-    "digital marketing expert",
-    "brand development",
-    "visual storytelling",
-    "digital marketing agency",
-    "founder of Social Pulse",
-    "best digital marketing agency India",
-  ],
-  authors: [{ name: "Rishabh Mishra" }],
-  creator: "Rishabh Mishra",
-  publisher: "Social Pulse Agency",
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
-  openGraph: {
-    type: "profile",
-    title: "Rishabh Mishra - Digital Marketing Visionary & Founder",
-    description:
-      "Discover Rishabh Mishra's journey as the founder of Social Pulse Agency, a leading digital marketing firm. Expertise in brand development, visual storytelling, and more.",
-    images: [
-      {
-        url: "/rishabhmishra.png",
-        width: 1200,
-        height: 630,
-        alt: "Rishabh Mishra - Founder of Social Pulse Agency",
-      },
-    ],
-    locale: "en_US",
-    url: "https://www.socialpulseagency.in/rishabhmishra",
-    siteName: "Social Pulse Agency",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Rishabh Mishra - Social Pulse Agency Founder",
-    description:
-      "Learn about Rishabh Mishra, the founder of Social Pulse Agency, and explore his expertise in digital marketing, brand development, and visual storytelling.",
-    images: [
-      {
-        url: "/rishabhmishra.png",
-        alt: "Rishabh Mishra - Founder of Social Pulse Agency",
-      },
-    ],
-    creator: "@RishabhMishra",
-  },
-  verification: {
-    google: "your-google-verification-code",
-  },
-  alternates: {
-    canonical: "https://www.socialpulseagency.in/rishabhmishra", // Correct canonical URL for the founder page
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
+// Page Component
+const FounderPageClient = () => {
+  const scrollToWebsiteDesign = () => {
+    console.log("Scrolling to Website Design");
+  };
+  const scrollToGraphicDesign = () => {
+    console.log("Scrolling to Graphic Design");
+  };
+  const scrollToShopifyStores = () => {
+    console.log("Scrolling to Shopify Stores");
+  };
+  const scrollToBrands = () => {
+    console.log("Scrolling to Brands");
+  };
+  const scrollToServices = () => {
+    console.log("Scrolling to Services");
+  };
+
+  return (
+    <div className="min-h-screen bg-black text-white relative overflow-hidden">
+      <Navbar
+        scrollToWebsiteDesign={scrollToWebsiteDesign}
+        scrollToGraphicDesign={scrollToGraphicDesign}
+        scrollToShopifyStores={scrollToShopifyStores}
+        scrollToBrands={scrollToBrands}
+        scrollToServices={scrollToServices}
+      />
+
+      <section
+        className="p-4 mx-auto relative z-10 w-full pt-20 md:pt-24 bg-gradient-to-b from-[#171717] via-[#1E1E1E] to-[#171717]"
+        aria-label="About Us Section"
+      >
+        <header>
+          <h1 className="text-4xl md:pb-8 md:text-7xl text-center bg-clip-text text-transparent bg-gradient-to-b from-[#8103FF] to-sky-200 bg-opacity-50">
+            About Rishabh Mishra
+          </h1>
+          <p className="mt-4 text-lg font-normal text-neutral-300 max-w-lg text-center mx-auto">
+            We Build Brands that Captivate: Meet the Visionary Behind It All
+          </p>
+        </header>
+
+        <div className="flex flex-col md:flex-row items-center justify-center mt-10 md:space-x-1 pb-24">
+          <motion.div
+            initial={{ y: 100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            className="w-full md:w-1/3 flex flex-col items-center justify-center"
+          >
+            <ThreeDCardExample />
+            <h2 className="text-lg md:text-2xl font-bold text-neutral-300 text-center pt-8">
+              Founder - Rishabh Mishra
+            </h2>
+          </motion.div>
+
+          <div className="w-full md:w-1/2 mt-10 md:mt-0 flex flex-col justify-center">
+            <article className="text-lg md:text-xl text-neutral-300 text-center md:text-left md:pb-12">
+              <p>
+                Rishabh Mishra, our founder, has always been passionate about
+                the power of visual storytelling. With a keen eye for design and
+                a deep understanding of branding principles, he established
+                Social Pulse Agency to empower businesses to connect with their
+                audience through impactful visuals. Our team of passionate
+                creatives, led by Rishabh Mishra&apos;s vision, brings that
+                passion to life every day.
+              </p>
+            </article>
+
+            <article className="text-lg md:text-xl text-neutral-300 text-center md:text-left mt-4">
+              <p>
+                We&apos;re Social Pulse, a digital marketing agency fueled by
+                passion and powered by expertise. We craft magnetic campaigns
+                and data-driven strategies to amplify your brand voice and
+                ignite growth. Think of us as your secret weapon in the
+                ever-evolving digital jungle.
+              </p>
+              <p className="mt-4">
+                Ready to conquer the online world? Let&apos;s chat!
+              </p>
+            </article>
+
+            <div className="flex justify-center mt-6">
+              <a
+                href="https://www.linkedin.com/in/rishabh-mishra007/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center px-4 py-2 text-blue-500 font-semibold rounded-md hover:text-blue-700 transition duration-300"
+              >
+                <FaLinkedin className="mr-2 text-xl" />
+                Connect on LinkedIn
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+    </div>
+  );
 };
+
+export default FounderPageClient;
