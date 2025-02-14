@@ -1,8 +1,8 @@
 import Head from "next/head";
 import { FaLinkedin } from "react-icons/fa";
 import { motion } from "framer-motion";
-import Navbar from "@/components/navbar";
-import Footer from "@/components/footer";
+import Navbar from "../../components/navbar";
+import Footer from "../../components/footer";
 import { ThreeDCardExample } from "../../app/snippets/3d-card-snippet";
 
 // Page Component

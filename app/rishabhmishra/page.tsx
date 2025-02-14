@@ -50,7 +50,12 @@ export const metadata: Metadata = {
     title: "Rishabh Mishra - Social Pulse Agency Founder",
     description:
       "Learn about Rishabh Mishra, the founder of Social Pulse Agency, and explore his expertise in digital marketing, brand development, and visual storytelling.",
-    images: ["/rishabhmishra.png"],
+    images: [
+      {
+        url: "/rishabhmishra.png",
+        alt: "Rishabh Mishra - Founder of Social Pulse Agency",
+      },
+    ],
     creator: "@RishabhMishra",
   },
   verification: {
