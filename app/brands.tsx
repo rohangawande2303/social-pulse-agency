@@ -1,6 +1,6 @@
 import React from "react";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
-import Image from "next/image";
+import Image from "next/image"; 
 
 const logos = [
   {
