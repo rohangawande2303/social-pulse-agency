@@ -1,8 +1,6 @@
-// app/rishabhmishra/seo.ts
-
 import { Metadata } from "next";
 
-// SEO metadata for Next.js 14
+// SEO metadata for the founder page
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.socialpulseagency.in"),
   title: {
@@ -25,11 +23,6 @@ export const metadata: Metadata = {
   authors: [{ name: "Rishabh Mishra" }],
   creator: "Rishabh Mishra",
   publisher: "Social Pulse Agency",
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
   openGraph: {
     type: "profile",
     title: "Rishabh Mishra - Digital Marketing Visionary & Founder",
@@ -37,7 +30,7 @@ export const metadata: Metadata = {
       "Discover Rishabh Mishra's journey as the founder of Social Pulse Agency, a leading digital marketing firm. Expertise in brand development, visual storytelling, and more.",
     images: [
       {
-        url: "/rishabhmishra.png",
+        url: "/rishabhmishra.png", // Make sure this image exists in the public folder
         width: 1200,
         height: 630,
         alt: "Rishabh Mishra - Founder of Social Pulse Agency",
@@ -54,17 +47,14 @@ export const metadata: Metadata = {
       "Learn about Rishabh Mishra, the founder of Social Pulse Agency, and explore his expertise in digital marketing, brand development, and visual storytelling.",
     images: [
       {
-        url: "/rishabhmishra.png",
+        url: "/rishabhmishra.png", // Ensure image exists for Twitter card
         alt: "Rishabh Mishra - Founder of Social Pulse Agency",
       },
     ],
     creator: "@RishabhMishra",
   },
   verification: {
-    google: "your-google-verification-code",
-  },
-  alternates: {
-    canonical: "https://www.socialpulseagency.in/rishabhmishra", // Correct canonical URL for the founder page
+    google: "your-google-verification-code", // Ensure you add your Google verification code here
   },
   robots: {
     index: true,
@@ -72,9 +62,6 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
     },
   },
 };

@@ -1,10 +1,12 @@
-"use client";
+import { metadata } from "./seo"; // Import SEO metadata
+import Head from "next/head";
+
+("use client");
 import { FaLinkedin } from "react-icons/fa";
 import { motion } from "framer-motion";
 import Navbar from "../../components/navbar";
 import Footer from "../../components/footer";
 import { ThreeDCardExample } from "../../app/snippets/3d-card-snippet";
-import { metadata } from "./seo"; // Import the SEO metadata
 
 // Page Component
 const FounderPageClient = () => {
@@ -24,8 +26,81 @@ const FounderPageClient = () => {
     console.log("Scrolling to Services");
   };
 
+  // Fallback metadata handling
+  const pageTitle: string =
+    (metadata?.title as string) ||
+    "Rishabh Mishra - Founder of Social Pulse Agency";
+  const pageDescription =
+    metadata?.description ||
+    "Learn about Rishabh Mishra, the visionary founder of Social Pulse Agency, and how he builds captivating brands.";
+  const pageKeywords = Array.isArray(metadata?.keywords)
+    ? metadata.keywords.join(", ")
+    : metadata?.keywords ||
+      "Rishabh Mishra, Social Pulse Agency, Founder, Branding, Digital Marketing";
+  const ogTitle =
+    metadata?.openGraph?.title ||
+    "Rishabh Mishra - Founder of Social Pulse Agency";
+  const ogDescription =
+    metadata?.openGraph?.description ||
+    "Learn about Rishabh Mishra, the visionary founder of Social Pulse Agency, and how he builds captivating brands.";
+  const ogImageUrl = Array.isArray(metadata?.openGraph?.images)
+    ? (metadata.openGraph.images[0] as any)?.url
+    : typeof metadata?.openGraph?.images === "string"
+    ? metadata.openGraph.images
+    : "/default-image.png";
+  const ogUrl =
+    typeof metadata?.openGraph?.url === "string"
+      ? metadata.openGraph.url
+      : metadata?.openGraph?.url?.toString() ||
+        "https://www.socialpulseagency.in/rishabhmishra";
+
   return (
     <div className="min-h-screen bg-black text-white relative overflow-hidden">
+      <Head>
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDescription} />
+        <meta name="keywords" content={pageKeywords} />
+        <link
+          rel="canonical"
+          href={
+            metadata?.metadataBase?.href ||
+            "https://www.socialpulseagency.in/rishabhmishra"
+          }
+        />
+        <meta property="og:title" content={String(ogTitle)} />
+        <meta property="og:description" content={ogDescription} />
+        <meta property="og:image" content={ogImageUrl} />
+        <meta property="og:url" content={ogUrl} />
+        <meta
+          name="twitter:title"
+          content={
+            String(metadata?.twitter?.title) ||
+            "Rishabh Mishra - Founder of Social Pulse Agency"
+          }
+        />
+        <meta
+          name="twitter:description"
+          content={
+            String(metadata?.twitter?.description) ||
+            "Learn about Rishabh Mishra, the visionary founder of Social Pulse Agency, and how he builds captivating brands."
+          }
+        />
+        <meta
+          name="twitter:image"
+          content={
+            Array.isArray(metadata?.twitter?.images)
+              ? (metadata.twitter.images[0] as any)?.url
+              : typeof metadata?.twitter?.images === "string"
+              ? metadata.twitter.images
+              : "/default-image.png"
+          }
+        />
+        <meta name="robots" content="index, follow" />
+        <meta name="googlebot" content="index, follow" />
+        <meta name="author" content="Rishabh Mishra" />
+        <meta name="publisher" content="Social Pulse Agency" />
+      </Head>
+
       <Navbar
         scrollToWebsiteDesign={scrollToWebsiteDesign}
         scrollToGraphicDesign={scrollToGraphicDesign}
