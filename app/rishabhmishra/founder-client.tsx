@@ -1,3 +1,4 @@
+"use client";
 import Head from "next/head";
 import { FaLinkedin } from "react-icons/fa";
 import { motion } from "framer-motion";
