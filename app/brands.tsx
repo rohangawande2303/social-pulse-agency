@@ -24,7 +24,7 @@ const logos = [
 const Brands = () => {
   // Mapping the logos array to match the format needed by the InfiniteMovingCards component
   const brandItems = logos.map((logo) => ({
-    quote: logo.name, 
+    quote: "",
     // name: logo.name,
     name: "",
     title: "", // Optional, leave empty if no title
