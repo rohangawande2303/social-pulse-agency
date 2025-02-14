@@ -6,7 +6,7 @@ import Footer from "@/components/footer";
 import { ThreeDCardExample } from "../../app/snippets/3d-card-snippet";
 
 // Page Component
-export function FounderPageClient() {
+const FounderPageClient = () => {
   const scrollToWebsiteDesign = () => {
     console.log("Scrolling to Website Design");
   };
@@ -122,4 +122,6 @@ export function FounderPageClient() {
       <Footer />
     </div>
   );
-}
+};
+
+export default FounderPageClient;
