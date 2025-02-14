@@ -1,13 +1,11 @@
-// app/rishabhmishra/founder-client.tsx
-"use client";
-
-import React from "react";
+import Head from "next/head";
+import { FaLinkedin } from "react-icons/fa";
+import { motion } from "framer-motion";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
-import { motion } from "framer-motion";
 import { ThreeDCardExample } from "../../app/snippets/3d-card-snippet";
-import { FaLinkedin } from "react-icons/fa";
 
+// Page Component
 export function FounderPageClient() {
   const scrollToWebsiteDesign = () => {
     console.log("Scrolling to Website Design");
@@ -27,6 +25,26 @@ export function FounderPageClient() {
 
   return (
     <div className="min-h-screen bg-black text-white relative overflow-hidden">
+      <Head>
+        {/* SEO Meta Tags */}
+        <title>
+          Rishabh Mishra - Founder of Social Pulse Agency | Digital Marketing
+          Expert
+        </title>
+        <meta
+          name="description"
+          content="Meet Rishabh Mishra, the visionary founder of Social Pulse Agency, a digital marketing expert specializing in brand development, visual storytelling, and impactful strategies."
+        />
+        <meta
+          name="keywords"
+          content="Rishabh Mishra, Social Pulse Agency, digital marketing expert, brand development, visual storytelling, digital marketing agency, founder of Social Pulse, best digital marketing agency India"
+        />
+        <link
+          rel="canonical"
+          href="https://www.socialpulseagency.in/rishabhmishra"
+        />
+      </Head>
+
       <Navbar
         scrollToWebsiteDesign={scrollToWebsiteDesign}
         scrollToGraphicDesign={scrollToGraphicDesign}

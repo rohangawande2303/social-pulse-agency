@@ -7,9 +7,10 @@ import "./globals.css";
 const font = Poppins({ subsets: ["latin"], weight: "400" });
 
 export const metadata: Metadata = {
-  title: "Best Digital Marketing Agency in Thane | Social Pulse Agency",
+  title:
+    "Best Digital Marketing Agency in Thane | SEO, Social Media & Web Design Services | Social Pulse Agency",
   description:
-    "Social Pulse Agency is Thane's premier digital marketing agency, specializing in SEO, social media marketing, and web design services.",
+    "Social Pulse Agency is Thane's leading digital marketing agency, offering SEO, social media marketing, PPC, and web design services to grow your business online. Get in touch today!",
   keywords: [
     "digital marketing agency Thane",
     "SEO Thane",
