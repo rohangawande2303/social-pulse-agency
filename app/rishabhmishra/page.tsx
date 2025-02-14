@@ -1,7 +1,7 @@
+"use client";
+
 import { metadata } from "./seo"; // Import SEO metadata
 import Head from "next/head";
-
-("use client");
 import { FaLinkedin } from "react-icons/fa";
 import { motion } from "framer-motion";
 import Navbar from "../../components/navbar";
@@ -44,15 +44,11 @@ const FounderPageClient = () => {
     metadata?.openGraph?.description ||
     "Learn about Rishabh Mishra, the visionary founder of Social Pulse Agency, and how he builds captivating brands.";
   const ogImageUrl = Array.isArray(metadata?.openGraph?.images)
-    ? (metadata.openGraph.images[0] as any)?.url
-    : typeof metadata?.openGraph?.images === "string"
-    ? metadata.openGraph.images
+    ? (metadata.openGraph.images[0] as { url: string }).url
     : "/default-image.png";
   const ogUrl =
-    typeof metadata?.openGraph?.url === "string"
-      ? metadata.openGraph.url
-      : metadata?.openGraph?.url?.toString() ||
-        "https://www.socialpulseagency.in/rishabhmishra";
+    metadata?.openGraph?.url ||
+    "https://www.socialpulseagency.in/rishabhmishra";
 
   return (
     <div className="min-h-screen bg-black text-white relative overflow-hidden">
@@ -67,32 +63,22 @@ const FounderPageClient = () => {
             "https://www.socialpulseagency.in/rishabhmishra"
           }
         />
-        <meta property="og:title" content={String(ogTitle)} />
+        <meta property="og:title" content={ogTitle as string} />
         <meta property="og:description" content={ogDescription} />
         <meta property="og:image" content={ogImageUrl} />
-        <meta property="og:url" content={ogUrl} />
+        <meta property="og:url" content={ogUrl.toString()} />
         <meta
           name="twitter:title"
           content={
-            String(metadata?.twitter?.title) ||
+            (metadata?.twitter?.title as string) ||
             "Rishabh Mishra - Founder of Social Pulse Agency"
           }
         />
         <meta
           name="twitter:description"
           content={
-            String(metadata?.twitter?.description) ||
+            metadata?.twitter?.description ||
             "Learn about Rishabh Mishra, the visionary founder of Social Pulse Agency, and how he builds captivating brands."
-          }
-        />
-        <meta
-          name="twitter:image"
-          content={
-            Array.isArray(metadata?.twitter?.images)
-              ? (metadata.twitter.images[0] as any)?.url
-              : typeof metadata?.twitter?.images === "string"
-              ? metadata.twitter.images
-              : "/default-image.png"
           }
         />
         <meta name="robots" content="index, follow" />
