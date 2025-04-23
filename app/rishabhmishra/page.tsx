@@ -174,10 +174,11 @@ export default function FounderPage() {
                 <Image
                   src="/rishabhmishra.png"
                   alt="Rishabh Mishra, Founder & CEO of Social Pulse Agency"
-                  width={300}
-                  height={400}
+                  width={800} // Increase base width
+                  height={1000} // Increase base height
                   priority
                   className="rounded-lg w-4/5 md:w-full md:h-auto md:max-h-none"
+                  sizes="(max-width: 768px) 80vw, (max-width: 1200px) 50vw, 33vw"
                   style={{
                     maxWidth: "100%",
                     minWidth: "280px",
@@ -199,11 +200,11 @@ export default function FounderPage() {
               <p>
                 <strong>Rishabh Mishra</strong>, the visionary{" "}
                 <strong>Founder & CEO of Social Pulse Agency</strong>, is an
-                award-winning digital marketing expert with over a decade of
-                experience in transforming businesses through strategic online
-                solutions. Certified by the Digital Marketing Institute, Rishabh
-                has helped 200+ brands achieve measurable growth through
-                innovative marketing strategies.
+                award-winning digital marketing expert and has great experience
+                in transforming businesses through strategic online solutions.
+                Certified by the Digital Marketing Institute, Rishabh has helped
+                many brands achieve measurable growth through innovative
+                marketing strategies.
               </p>
             </article>
 
@@ -216,7 +217,6 @@ export default function FounderPage() {
                 recognized as a top digital marketing agency specializing in:
               </p>
               <ul className="list-disc pl-6 mt-2">
-                <li>E-commerce optimization (Shopify & WooCommerce)</li>
                 <li>Data-driven social media campaigns</li>
                 <li>Conversion-focused website design</li>
                 <li>Brand identity development</li>
@@ -246,7 +246,7 @@ export default function FounderPage() {
                 aria-label="Connect with Rishabh Mishra on LinkedIn"
               >
                 <FaLinkedin className="mr-2 text-xl" />
-                Connect with Rishabh on LinkedIn
+                Connect with Rishabh
               </a>
             </div>
           </div>

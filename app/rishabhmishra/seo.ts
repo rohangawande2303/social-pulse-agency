@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.socialpulseagency.in"),
+  // Update metadataBase to use non-www version since that's our target destination
+  metadataBase: new URL("https://socialpulseagency.in"),
   title:
     "Who is Rishabh Mishra? | Founder of Social Pulse Agency | Digital Marketing Expert",
   description:
     "Rishabh Mishra is the Founder & CEO of Social Pulse Agency with 10+ years experience in digital marketing. Specializing in brand strategy, e-commerce optimization, and social media marketing, Rishabh has helped 200+ brands achieve measurable growth through innovative strategies.",
   alternates: {
-    canonical: "https://www.socialpulseagency.in/rishabhmishra",
+    // Update canonical to match the non-www version
+    canonical: "https://socialpulseagency.in/rishabhmishra",
   },
   keywords: [
     "Who is Rishabh Mishra",
@@ -45,7 +47,8 @@ export const metadata: Metadata = {
       },
     ],
     locale: "en_IN",
-    url: "https://www.socialpulseagency.in/rishabhmishra",
+    // Update URL to match the non-www version
+    url: "https://socialpulseagency.in/rishabhmishra",
     siteName: "Social Pulse Agency",
     firstName: "Rishabh",
     lastName: "Mishra",
@@ -65,7 +68,7 @@ export const metadata: Metadata = {
     ],
     creator: "@SocialPulseIn",
     site: "@SocialPulseIn",
-  }, // Add Twitter card metadata
+  },
   robots: {
     index: true,
     follow: true,
