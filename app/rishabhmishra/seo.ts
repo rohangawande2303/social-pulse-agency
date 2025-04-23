@@ -1,67 +1,84 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 
-// SEO metadata for the founder page
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.socialpulseagency.in"),
-  title: {
-    default:
-      "Rishabh Mishra - Founder of Social Pulse Agency | Digital Marketing Expert",
-    template: "%s | Social Pulse Agency",
-  },
+  title:
+    "Who is Rishabh Mishra? | Founder of Social Pulse Agency | Digital Marketing Expert",
   description:
-    "Meet Rishabh Mishra, the visionary founder of Social Pulse Agency, a digital marketing expert specializing in brand development, visual storytelling, and impactful strategies.",
+    "Rishabh Mishra is the Founder & CEO of Social Pulse Agency with 10+ years experience in digital marketing. Specializing in brand strategy, e-commerce optimization, and social media marketing, Rishabh has helped 200+ brands achieve measurable growth through innovative strategies.",
+  alternates: {
+    canonical: "https://www.socialpulseagency.in/rishabhmishra",
+  },
   keywords: [
+    "Who is Rishabh Mishra",
     "Rishabh Mishra",
-    "Social Pulse Agency",
-    "digital marketing expert",
-    "brand development",
-    "visual storytelling",
-    "digital marketing agency",
-    "founder of Social Pulse",
-    "best digital marketing agency India",
+    "Rishabh Mishra Founder",
+    "Founder of Social Pulse Agency",
+    "Social Pulse Agency Founder",
+    "Who founded Social Pulse Agency",
+    "Rishabh Mishra Digital Marketing Expert",
+    "About Rishabh Mishra",
+    "Social Pulse Agency CEO",
+    "Digital Marketing Expert India",
+    "Brand Strategy Expert India",
+    "Rishabh Mishra Social Pulse",
+    "Rishabh Mishra CEO",
+    "Digital Marketing Specialist Rishabh",
+    "E-commerce Expert Rishabh Mishra",
+    "Shopify Expert Rishabh",
+    "Website Design Expert Rishabh",
   ],
   authors: [{ name: "Rishabh Mishra" }],
   creator: "Rishabh Mishra",
   publisher: "Social Pulse Agency",
   openGraph: {
     type: "profile",
-    title: "Rishabh Mishra - Digital Marketing Visionary & Founder",
+    title: "Rishabh Mishra - Founder & CEO of Social Pulse Agency",
     description:
-      "Discover Rishabh Mishra's journey as the founder of Social Pulse Agency, a leading digital marketing firm. Expertise in brand development, visual storytelling, and more.",
+      "Discover the journey of Rishabh Mishra - Visionary founder of Social Pulse Agency, digital marketing expert with decade-long experience in brand building and growth strategies.",
     images: [
       {
-        url: "/rishabhmishra.png", // Make sure this image exists in the public folder
+        url: "/rishabh-mishra-seo.jpg",
         width: 1200,
         height: 630,
-        alt: "Rishabh Mishra - Founder of Social Pulse Agency",
+        alt: "Rishabh Mishra - Founder & CEO of Social Pulse Agency",
       },
     ],
-    locale: "en_US",
+    locale: "en_IN",
     url: "https://www.socialpulseagency.in/rishabhmishra",
     siteName: "Social Pulse Agency",
+    firstName: "Rishabh",
+    lastName: "Mishra",
+    username: "rishabh-mishra007",
+    gender: "male",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Rishabh Mishra - Social Pulse Agency Founder",
+    title: "Who is Rishabh Mishra? - Social Pulse Agency Founder",
     description:
-      "Learn about Rishabh Mishra, the founder of Social Pulse Agency, and explore his expertise in digital marketing, brand development, and visual storytelling.",
+      "Learn about Rishabh Mishra's expertise in digital marketing, brand development, and leadership at Social Pulse Agency.",
     images: [
       {
-        url: "/rishabhmishra.png", // Ensure image exists for Twitter card
-        alt: "Rishabh Mishra - Founder of Social Pulse Agency",
+        url: "/rishabh-mishra-twitter.jpg",
+        alt: "Portrait of Rishabh Mishra, Social Pulse Agency Founder",
       },
     ],
-    creator: "@RishabhMishra",
-  },
-  verification: {
-    google: "your-google-verification-code", // Ensure you add your Google verification code here
-  },
+    creator: "@SocialPulseIn",
+    site: "@SocialPulseIn",
+  }, // Add Twitter card metadata
   robots: {
     index: true,
     follow: true,
     googleBot: {
       index: true,
       follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
   },
+  verification: {
+    google: "your-google-verification-code",
+  },
+  category: "Digital Marketing",
 };
