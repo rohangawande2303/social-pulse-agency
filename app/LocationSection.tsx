@@ -107,7 +107,7 @@ const LocationSection = () => {
             transition={{ duration: 0.5, delay: 0.4 }}
           >
             <Link
-              href="https://maps.app.goo.gl/swowaPiBVAYhNMkv9"
+              href="https://www.google.com/maps/place/Social+Pulse+Agency+-+Digital+Marketing+Agency+in+Thane+Mumbai+%7C+SEO+Company+%7C+Website+Development+Company/@19.2043237,72.9756779,19.5z/data=!4m6!3m5!1s0x3be7b9f9da04b8f7:0x9b454855f073e6c2!8m2!3d19.2043763!4d72.9754963!16s%2Fg%2F11xm8kb2y0?entry=ttu&g_ep=EgoyMDI1MTAwOC4wIKXMDSoASAFQAw%3D%3D"
               target="_blank"
               rel="noopener noreferrer"
               onClick={handleMapClick} // Trigger lazy load when clicked
@@ -124,8 +124,12 @@ const LocationSection = () => {
                       width="100%"
                       height="100%"
                       id="gmap_canvas"
-                      src="https://maps.google.com/maps?q=Social+Pulse+Agency&t=&z=12&ie=UTF8&iwloc=&output=embed"
-                      frameBorder="0"
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3767.789911999971!2d72.97292137520859!3d19.204376282026775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b9f9da04b8f7%3A0x9b454855f073e6c2!2sSocial%20Pulse%20Agency%20-%20Digital%20Marketing%20Agency%20in%20Thane%20Mumbai%20%7C%20SEO%20Company%20%7C%20Website%20Development%20Company!5e0!3m2!1sen!2sin!4v1760341590190!5m2!1sen!2sin"
+                      style={{ border: 0 }}
+                      allowFullScreen
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      frameBorder={0}
                       scrolling="no"
                       marginHeight={0}
                       marginWidth={0}
