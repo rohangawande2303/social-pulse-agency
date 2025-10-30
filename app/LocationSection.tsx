@@ -124,7 +124,7 @@ const LocationSection = () => {
                       width="100%"
                       height="100%"
                       id="gmap_canvas"
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3767.789911999971!2d72.97292137520859!3d19.204376282026775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b9f9da04b8f7%3A0x9b454855f073e6c2!2sSocial%20Pulse%20Agency%20-%20Digital%20Marketing%20Agency%20in%20Thane%20Mumbai%20%7C%20SEO%20Company%20%7C%20Website%20Development%20Company!5e0!3m2!1sen!2sin!4v1760341590190!5m2!1sen!2sin"
+                      src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d120569.28091373968!2d72.89314498364593!3d19.204371193604523!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x3be7b9f9da04b8f7%3A0x9b454855f073e6c2!2sGround%20Floor%2C%20C%20Wing%2C%20Kolungade%20CHS%2C%20Shop%2017%2C%20Thane%20West%2C%20Thane%2C%20Maharashtra%20400601!3m2!1d19.2043896!2d72.9755467!5e0!3m2!1sen!2sin!4v1761808824816!5m2!1sen!2sin"
                       style={{ border: 0 }}
                       allowFullScreen
                       loading="lazy"
