@@ -6,11 +6,7 @@ const HUBTOWN_API_ENDPOINT =
 const HUBTOWN_API_TOKEN =
   "80127a169034c63124f83aa5553ebd5a48319b27e1519cc4833716c24b93a9d1";
 const PAGE_ACCESS_TOKEN =
-  "EAFeW8uXs2qoBPwaZApW0F6w7JheC8eKXUiXftajrdkW8Kjs6XHi3H4bZCLcmBWq840OQXNmkv9GSgqwylPRi6EZBvclot4HHXteICubk38jzsmuVKzZA69hxK1BbxZBaXiEOrxRKtUpRMMgQr5Ro4LNX4KeNm3vJD8Sa4k7VS2XwLcBEvSt9PEZARDDFIsFCOaXgybvg4OPPOMETcHNEGpt198sK5O5bXAU4QKXHJ0yeLE084vCJ4JBalRaJqjdIljze2DZBMc3pAyrLKfyV1Wf"; // Set your actual token
-
-// Assign your real Form IDs here:
-const FORM_ID_TC = "1177169097800298"; // Replace with actual Form ID for Trade Centre
-const FORM_ID_NS = "787144540553933"; // Replace with actual Form ID for North Star
+  "EAFeW8uXs2qoBPwaZApW0F6w7JheC8eKXUiXftajrdkW8Kjs6XHi3H4bZCLcmBWq840OQXNmkv9GSgqwylPRi6EZBvclot4HHXteICubk38jzsmuVKzZA69hxK1BbxZBaXiEOrxRKtUpRMMgQr5Ro4LNX4KeNm3vJD8Sa4k7VS2XwLcBEvSt9PEZARDDFIsFCOaXgybvg4OPPOMETcHNEGpt198sK5O5bXAU4QKXHJ0yeLE084vCJ4JBalRaJqjdIljze2DZBMc3pAyrLKfyV1Wf"; // Use your actual token
 
 // Handle Meta webhook verification (GET)
 export async function GET(req: NextRequest) {
@@ -49,31 +45,20 @@ export async function POST(req: NextRequest) {
           return answer ? answer.text : "";
         };
 
-        // Default values
-        let projectName = "";
-        let source = "";
+        // Use only name, email, phone; set both first/last name to 'name' field
+        const nameValue = getField("name");
+        const emailValue = getField("email");
+        const phoneValue = getField("phone");
 
-        // Identify the form origin using form_id
-        if (change.value.form_id === FORM_ID_TC) {
-          projectName = "Trade Centre";
-          source = "SP - TC";
-        } else if (change.value.form_id === FORM_ID_NS) {
-          projectName = "North Star";
-          source = "SP - NS";
-        } else {
-          projectName = "Unknown Project";
-          source = "Facebook Lead";
-        }
-
-        // Prepare Hubtown API data
+        // Prepare Hubtown API data (minimum required)
         const hubtownPayload = {
-          first_name: getField("first_name"),
-          last_name: getField("last_name"),
+          first_name: nameValue,
+          last_name: nameValue,
           country_code: "+91",
-          mobile: getField("phone"),
-          email: getField("email"),
-          source: source,
-          projectname: projectName,
+          mobile: phoneValue,
+          email: emailValue,
+          source: "Facebook Lead",
+          projectname: "",
           message: "",
         };
 
