@@ -8,7 +8,11 @@ const HUBTOWN_API_TOKEN =
 const PAGE_ACCESS_TOKEN =
   "EAFeW8uXs2qoBPwaZApW0F6w7JheC8eKXUiXftajrdkW8Kjs6XHi3H4bZCLcmBWq840OQXNmkv9GSgqwylPRi6EZBvclot4HHXteICubk38jzsmuVKzZA69hxK1BbxZBaXiEOrxRKtUpRMMgQr5Ro4LNX4KeNm3vJD8Sa4k7VS2XwLcBEvSt9PEZARDDFIsFCOaXgybvg4OPPOMETcHNEGpt198sK5O5bXAU4QKXHJ0yeLE084vCJ4JBalRaJqjdIljze2DZBMc3pAyrLKfyV1Wf"; // Use your actual token
 
-// Handle Meta webhook verification (GET)
+// Your two Meta form IDs here (replace with real values)
+const FORM_ID_TC = "1177169097800298";
+const FORM_ID_NS = "787144540553933";
+
+// Meta webhook verification handler
 export async function GET(req: NextRequest) {
   const searchParams = req.nextUrl.searchParams;
   const mode = searchParams.get("hub.mode");
@@ -22,7 +26,7 @@ export async function GET(req: NextRequest) {
   }
 }
 
-// Handle Meta lead notifications (POST)
+// Meta lead delivery handler
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
@@ -38,31 +42,59 @@ export async function POST(req: NextRequest) {
         );
         const leadData = await leadResponse.json();
 
-        // Extract fields based on your lead form
         const answers = leadData.answers || [];
         const getField = (field: string) => {
           const answer = answers.find((a: any) => a.name === field);
           return answer ? answer.text : "";
         };
 
-        // Use only name, email, phone; set both first/last name to 'name' field
-        const nameValue = getField("name");
-        const emailValue = getField("email");
-        const phoneValue = getField("phone");
+        // Get lead form fields
+        const fullName = getField("full_name");
+        const email = getField("email");
+        const phone = getField("phone_number");
 
-        // Prepare Hubtown API data (minimum required)
+        // Split fullName into first and last name (if possible)
+        const [firstName, ...rest] = fullName.split(" ");
+        const lastName = rest.join(" ") || firstName;
+
+        // Set defaults - will override based on form ID below
+        let projectCode = "P123"; // Default to Trade Centre code
+        let projectName = "Trade Centre";
+        let websiteName = "hubtown.co.in";
+        let configuration = "Shops";
+        let message = "Interested in Trade Centre Shops via Facebook lead.";
+        let currentUrl = "https://www.hubtown.co.in/trade-centre";
+        let source = "Facebook";
+
+        // Use form_id to customize per project
+        if (change.value.form_id === FORM_ID_NS) {
+          projectCode = "P456";
+          projectName = "North Star";
+          websiteName = "hubtown.co.in";
+          configuration = "Shops";
+          message = "Interested in North Star Shops via Facebook lead.";
+          currentUrl = "https://www.hubtown.co.in/north-star";
+          source = "Facebook";
+        }
+
+        // Prepare Hubtown API data
         const hubtownPayload = {
-          first_name: nameValue,
-          last_name: nameValue,
+          first_name: firstName,
+          last_name: lastName,
           country_code: "+91",
-          mobile: phoneValue,
-          email: emailValue,
-          source: "Facebook Lead",
-          projectname: "",
-          message: "",
+          mobile: phone,
+          email: email,
+          source: source,
+          project_code: projectCode,
+          projectname: projectName,
+          website_name: websiteName,
+          configuration: configuration,
+          message: message,
+          current_url: currentUrl,
+          website: "", // Honeypot (leave empty)
         };
 
-        // Submit to Hubtown API (urlencoded)
+        // Submit to Hubtown API
         await fetch(HUBTOWN_API_ENDPOINT, {
           method: "POST",
           headers: {
