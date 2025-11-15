@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import Footer from "../../components/footer";
 import Navbar from "../../components/navbar";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 
 function ScrollRevealText({
   children,
@@ -80,14 +81,16 @@ function StudioStory() {
           </ScrollRevealText>
 
           <ScrollRevealText>
-            <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
-              We&apos;re Social Pulse, a digital marketing agency fueled by
-              passion and powered by expertise. We craft magnetic campaigns and
+            <ScrollReveal
+              textClassName="text-lg md:text-xl text-gray-300 leading-relaxed"
+              containerClassName="my-0"
+            >
+              We&apos;re Social Pulse, a digital marketing agency fueled by passion
+              and powered by expertise. We craft magnetic campaigns and
               data-driven strategies to amplify your brand voice and ignite
               growth. Think of us as your secret weapon in the ever-evolving
-              digital jungle. Ready to conquer the online world? Let&apos;s
-              chat!
-            </p>
+              digital jungle. Ready to conquer the online world? Let&apos;s chat!
+            </ScrollReveal>
           </ScrollRevealText>
         </div>
       </div>
@@ -118,15 +121,17 @@ function FounderSection() {
           </ScrollRevealText>
 
           <ScrollRevealText className="space-y-6">
-            <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
-              <strong>Rishabh Mishra</strong>, the visionary{" "}
-              <strong>Founder & CEO of Social Pulse Agency</strong>, is an
-              award-winning digital marketing expert and has great experience in
-              transforming businesses through strategic online solutions.
-              Certified by the Digital Marketing Institute, Rishabh has helped
-              many brands achieve measurable growth through innovative marketing
-              strategies.
-            </p>
+            <ScrollReveal
+              textClassName="text-lg md:text-xl text-gray-300 leading-relaxed"
+              containerClassName="my-0"
+            >
+              Rishabh Mishra, the visionary Founder & CEO of Social Pulse
+              Agency, is an award-winning digital marketing expert and has great
+              experience in transforming businesses through strategic online
+              solutions. Certified by the Digital Marketing Institute, Rishabh
+              has helped many brands achieve measurable growth through
+              innovative marketing strategies.
+            </ScrollReveal>
 
             <div className="space-y-3">
               <h3 className="text-2xl font-bold text-white">Rishabh Mishra</h3>

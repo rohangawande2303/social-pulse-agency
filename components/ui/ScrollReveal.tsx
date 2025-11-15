@@ -1,6 +1,12 @@
 "use client";
 
-import React, { useEffect, useRef, useMemo, ReactNode, RefObject } from "react";
+import React, {
+  useEffect,
+  useRef,
+  useMemo,
+  ReactNode,
+  RefObject,
+} from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -23,86 +29,91 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
   children,
   scrollContainerRef,
   enableBlur = true,
-  baseOpacity = 0.05, // slower fade
-  baseRotation = 5, // more dramatic
-  blurStrength = 6, // stronger blur
+  baseOpacity = 0.05,
+  baseRotation = 5,
+  blurStrength = 6,
   containerClassName = "",
   textClassName = "",
   rotationEnd = "bottom bottom",
   wordAnimationEnd = "top center",
 }) => {
-  const containerRef = useRef<HTMLHeadingElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
+  // Extract raw text even if children is a <p> or <span> etc.
+  const textContent =
+    typeof children === "string"
+      ? children
+      : (React.Children.map(children, (child) =>
+          typeof child === "string" ? child : ""
+        )?.join(" ") ?? "");
+
+  // Create split text spans
   const splitText = useMemo(() => {
-    const text = typeof children === "string" ? children : "";
-    return text.split(/(\s+)/).map((word, index) => {
-      if (word.match(/^\s+$/)) return word;
+    return textContent.split(/(\s+)/).map((word, index) => {
+      // Keep spacing intact
+      if (/^\s+$/.test(word)) return word;
+
       return (
         <span className="inline-block word" key={index}>
           {word}
         </span>
       );
     });
-  }, [children]);
+  }, [textContent]);
 
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
 
     const scroller =
-      scrollContainerRef && scrollContainerRef.current
-        ? scrollContainerRef.current
-        : window;
+      scrollContainerRef?.current ? scrollContainerRef.current : window;
 
-    // SLOW & SMOOTH ROTATION REVEAL
+    // ROTATION
     gsap.fromTo(
       el,
       { transformOrigin: "0% 50%", rotate: baseRotation },
       {
-        ease: "power2.out",
         rotate: 0,
+        ease: "power2.out",
         scrollTrigger: {
           trigger: el,
           scroller,
           start: "top bottom",
           end: rotationEnd,
-          scrub: 2, // <-- slower movement
+          scrub: 2,
         },
       }
     );
 
-    const wordElements = el.querySelectorAll<HTMLElement>(".word");
+    const words = el.querySelectorAll<HTMLElement>(".word");
 
-    // SLOW WORD OPACITY REVEAL
+    // OPACITY + Y REVEAL
     gsap.fromTo(
-      wordElements,
+      words,
+      { opacity: baseOpacity, y: 30 },
       {
-        opacity: baseOpacity,
-        y: 30, // <-- start lower for smoother reveal
-      },
-      {
-        ease: "power2.out",
         opacity: 1,
         y: 0,
-        stagger: 0.15, // <-- slower stagger
+        ease: "power2.out",
+        stagger: 0.15,
         scrollTrigger: {
           trigger: el,
           scroller,
           start: "top bottom-=10%",
           end: wordAnimationEnd,
-          scrub: 2, // <-- slower scroll influence
+          scrub: 2,
         },
       }
     );
 
-    // SLOW BLUR REVEAL
+    // BLUR
     if (enableBlur) {
       gsap.fromTo(
-        wordElements,
+        words,
         { filter: `blur(${blurStrength}px)` },
         {
-          ease: "power2.out",
           filter: "blur(0px)",
+          ease: "power2.out",
           stagger: 0.15,
           scrollTrigger: {
             trigger: el,
@@ -121,21 +132,21 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
   }, [
     scrollContainerRef,
     enableBlur,
-    baseRotation,
     baseOpacity,
+    baseRotation,
+    blurStrength,
     rotationEnd,
     wordAnimationEnd,
-    blurStrength,
   ]);
 
   return (
-    <h2 ref={containerRef} className={`my-5 ${containerClassName}`}>
+    <div ref={containerRef} className={`my-5 ${containerClassName}`}>
       <p
         className={`text-[clamp(1.6rem,4vw,3rem)] leading-[1.5] font-semibold ${textClassName}`}
       >
         {splitText}
       </p>
-    </h2>
+    </div>
   );
 };
 

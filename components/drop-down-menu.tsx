@@ -47,7 +47,7 @@ const DropDownMenu: React.FC<DropDownMenuProps> = ({
     >
       <div className="flex-col flex space-y-10">
         <Link
-          href="/#GraphicDesign"
+          href="/about"
           className="text-black text-2xl"
           onClick={onClose}
         >
