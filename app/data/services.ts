@@ -140,7 +140,7 @@ export const allProjects: Project[] = [
     id: "project-5",
     title: "Kohinoor Eden",
     description: "Google My Business Optimization for Kohinoor Eden & meta ads",
-    image: "/logo/Kohinoor.png",
+    image: "/logo/kohinoor.png",
     category: ["google-my-business", "Meta-ads"],
     clientName: "Kohinoor Group",
     link: "#",
