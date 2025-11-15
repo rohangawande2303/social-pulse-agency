@@ -4,11 +4,11 @@ import Image from "next/image";
 
 const logos = [
   {
-    image: "/logo/Balaji.png",
+    image: "/logo/balaji.png",
     name: "Balaji",
   },
   {
-    image: "/logo/Kohinoor.png",
+    image: "/logo/kohinoor.png",
     name: "Kohinoor",
   },
   {
