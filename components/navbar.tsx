@@ -174,7 +174,7 @@ const Navbar = ({
               Home
             </Link> */}
             <Link
-              href="/rishabhmishra"
+              href="/about"
               className="hover:text-gray-50"
               aria-label="About Us"
             >
