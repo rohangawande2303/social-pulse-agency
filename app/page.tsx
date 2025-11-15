@@ -7,11 +7,12 @@ import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import GraphicDesign from "./graphic-design";
 import Services from "./services";
-import Faq from "./faq"
+import Faq from "./faq";
 import { InfiniteMovingCardsDemo } from "./snippets/infinite-moving-card-snippet";
 import LocationSection from "./LocationSection";
 import React from "react";
 import Brands from "./brands";
+import LightRays from "../components/ui/LightRays";
 
 const words = [
   "Stunning Creatives!",
@@ -102,7 +103,27 @@ export default function Home() {
 
       <div className="">
         <section className="app__hero relative bg-black text-white min-h-screen flex items-center justify-center md:pt-0">
-          <div className="container mx-auto p-6 lg:px-8 text-center">
+          {/* LightRays Background Effect */}
+          <div className="absolute inset-0 w-full h-full">
+            <LightRays
+              raysOrigin="top-center"
+              raysColor="#8103FF"
+              raysSpeed={1.2}
+              lightSpread={1.0}
+              rayLength={2.0}
+              pulsating={false}
+              fadeDistance={1.0}
+              saturation={1.0}
+              followMouse={true}
+              mouseInfluence={0.15}
+              noiseAmount={0.05}
+              distortion={0.03}
+              className="z-0"
+            />
+          </div>
+
+          {/* Hero Content */}
+          <div className="container mx-auto p-6 lg:px-8 text-center relative z-10">
             {/* Hero heading (LCP element) */}
             <h1 className="text-4xl lg:text-6xl font-extrabold mb-8 leading-tight lg:leading-tight mt-0 md:mt-14">
               Craft Your Brand Story . . .
@@ -153,7 +174,7 @@ export default function Home() {
         <div id="services" ref={servicesRef}>
           <Services />
         </div>
-      
+
         <InfiniteMovingCardsDemo />
         <LocationSection />
         <Faq />
