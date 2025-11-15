@@ -7,6 +7,7 @@ import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import GraphicDesign from "./graphic-design";
 import Services from "./services";
+import Faq from "./faq"
 import { InfiniteMovingCardsDemo } from "./snippets/infinite-moving-card-snippet";
 import LocationSection from "./LocationSection";
 import React from "react";
@@ -155,6 +156,7 @@ export default function Home() {
       
         <InfiniteMovingCardsDemo />
         <LocationSection />
+        <Faq />
         <Footer />
       </div>
     </div>

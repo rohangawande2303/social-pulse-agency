@@ -36,12 +36,23 @@
   }
 
   body {
-    
     @apply bg-background text-foreground;
   }
 
   * {
     @apply border-border;
+  }
+}
+
+/* Hide scrollbar on desktop only */
+@media (min-width: 768px) {
+  .custom-scroll-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .custom-scroll-hide {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
   }
 }
 

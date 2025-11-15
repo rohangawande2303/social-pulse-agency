@@ -12,7 +12,13 @@ module.exports = {
   },
   // Add any dynamic pages or routes
   additionalPaths: async (config) => {
-    const result = [];
+    const result = [
+      {
+        loc: "/rishabhmishra", // This will add your page
+        changefreq: "monthly",
+        priority: 1.0,
+      },
+    ];
     // Example: Add dynamic routes
     // result.push({ loc: '/dynamic-page-1', changefreq: 'daily', priority: 0.7 })
     // result.push({ loc: '/dynamic-page-2', changefreq: 'daily', priority: 0.7 })

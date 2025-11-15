@@ -1,8 +1,9 @@
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
-import Link from "next/link";
+import Link from "next/link"; // Import Link for navigation
 import { useState } from "react";
 
+// Main HoverEffect component export
 export const HoverEffect = ({
   items,
   className,
@@ -11,6 +12,7 @@ export const HoverEffect = ({
     icon: React.ReactNode;
     title: string;
     description: string;
+    url: string; // Add URL field for navigation
   }[];
   className?: string;
 }) => {
@@ -19,21 +21,21 @@ export const HoverEffect = ({
   return (
     <div
       className={cn(
-        "grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3  py-10",
+        "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-10",
         className
       )}
     >
       {items.map((item, idx) => (
         <div
-          key={item?.title}
-          className="relative group  block p-2 h-full w-full"
+          key={item.title}
+          className="relative group block p-2 h-full w-full"
           onMouseEnter={() => setHoveredIndex(idx)}
           onMouseLeave={() => setHoveredIndex(null)}
         >
           <AnimatePresence>
             {hoveredIndex === idx && (
               <motion.span
-                className="absolute inset-0 h-full w-full bg-neutral-200 dark:bg-slate-800/[0.8] block  rounded-3xl"
+                className="absolute inset-0 h-full w-full bg-neutral-200 dark:bg-slate-800/[0.8] block rounded-3xl"
                 layoutId="hoverBackground"
                 initial={{ opacity: 0 }}
                 animate={{
@@ -47,18 +49,22 @@ export const HoverEffect = ({
               />
             )}
           </AnimatePresence>
-          <Card>
-            <div className="flex items-center">{item.icon}</div>
-            <CardTitle>{item.title}</CardTitle>
-            <CardDescription>{item.description}</CardDescription>
-          </Card>
+          {/* Removed <a> tag, Link component wraps the content directly */}
+          <Link href={item.url}>
+            <Card>
+              <div className="flex items-center">{item.icon}</div>
+              <CardTitle>{item.title}</CardTitle>
+              <CardDescription>{item.description}</CardDescription>
+            </Card>
+          </Link>
         </div>
       ))}
     </div>
   );
 };
 
-export const Card = ({
+// Internal Card Component (non-exported here to avoid merging issue)
+const Card = ({
   className,
   children,
 }: {
@@ -78,7 +84,9 @@ export const Card = ({
     </div>
   );
 };
-export const CardTitle = ({
+
+// Internal CardTitle Component (non-exported here)
+const CardTitle = ({
   className,
   children,
 }: {
@@ -91,7 +99,9 @@ export const CardTitle = ({
     </h2>
   );
 };
-export const CardDescription = ({
+
+// Internal CardDescription Component (non-exported here)
+const CardDescription = ({
   className,
   children,
 }: {

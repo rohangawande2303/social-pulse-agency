@@ -1,72 +1,47 @@
 /* eslint-disable react/no-unescaped-entities */
 "use client";
 
-import { motion } from "framer-motion";
-import { ThreeDCardExample } from "./snippets/3d-card-snippet";
-import Link from "next/link"; // Import Link component for navigation
+import Link from "next/link";
+import ScrollReveal from "../components/ui/ScrollReveal";
 
 const AboutUs = () => {
   return (
     <section
-      className="p-4 mx-auto relative z-10 w-full pt-20 md:pt-24 bg-gradient-to-b from-[#171717] via-[#1E1E1E] to-[#171717]"
-      aria-label="About Us Section"
+      className="
+    relative px-4 mx-auto z-10 w-full flex flex-col items-center justify-start bg-black py-24
+
+    before:content-[''] before:absolute before:top-0 before:left-0 before:w-full before:h-[1px]
+    before:bg-gradient-to-r before:from-transparent before:via-white/50 before:to-transparent
+
+    after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1px]
+    after:bg-gradient-to-r after:from-transparent after:via-white/60 after:to-transparent
+  "
     >
-      <header>
-        <h1 className="text-4xl md:pb-8 md:text-7xl text-center bg-clip-text text-transparent bg-gradient-to-b from-[#8103FF] to-sky-200 bg-opacity-50">
-          About Us
-        </h1>
-        <p className="mt-4 text-lg font-normal text-neutral-300 max-w-lg text-center mx-auto">
-          We Build Brands that Captivate: Meet the Visionary Behind It All
-        </p>
-      </header>
+      {/* Heading (fixed, always visible) */}
+      <h2 className="text-center text-[clamp(2.2rem,5vw,4rem)] font-semibold bg-clip-text text-transparent bg-gradient-to-b from-[#8103FF] to-sky-200">
+        About Us
+      </h2>
 
-      <div className="flex flex-col md:flex-row items-center justify-center mt-10 md:space-x-1 pb-24">
-        <motion.div
-          initial={{ y: 100, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          className="w-full md:w-1/3 flex flex-col items-center justify-center"
+      {/* Main Paragraph (scroll reveal) */}
+      <ScrollReveal
+        containerClassName="max-w-3xl text-center mt-6"
+        textClassName="text-neutral-300 text-lg md:text-2xl leading-relaxed"
+      >
+        We're Social Pulse, a digital marketing agency fueled by passion and
+        powered by expertise. We craft magnetic campaigns and data-driven
+        strategies to amplify your brand voice and ignite growth. Think of us as
+        your secret weapon in the ever-evolving digital jungle. Ready to conquer
+        the online world? Let's chat!
+      </ScrollReveal>
+
+      {/* Read More Button */}
+      <div className="mt-8">
+        <Link
+          href="/about"
+          className="px-6 py-3 border border-neutral-700 text-neutral-300 rounded-xl hover:bg-neutral-800 hover:border-neutral-600 transition-all duration-300 text-lg md:text-xl"
         >
-          <ThreeDCardExample />
-          <h2 className="text-lg md:text-2xl font-bold text-neutral-300 text-center pt-8">
-            Founder - Rishabh Mishra
-          </h2>
-        </motion.div>
-
-        <div className="w-full md:w-1/2 mt-10 md:mt-0 flex flex-col justify-center">
-          <article className="text-lg md:text-xl text-neutral-300 text-center md:text-left md:pb-12">
-            <p>
-              Rishabh Mishra, our founder, has always been passionate about the
-              power of visual storytelling. With a keen eye for design and a
-              deep understanding of branding principles, he established Social
-              Pulse Agency to empower businesses to connect with their audience
-              through impactful visuals. Our team of passionate creatives, led
-              by Rishabh Mishra's vision, brings that passion to life every day.
-            </p>
-          </article>
-
-          <article className="text-lg md:text-xl text-neutral-300 text-center md:text-left mt-4">
-            <p>
-              We're Social Pulse, a digital marketing agency fueled by passion
-              and powered by expertise. We craft magnetic campaigns and
-              data-driven strategies to amplify your brand voice and ignite
-              growth. Think of us as your secret weapon in the ever-evolving
-              digital jungle.
-            </p>
-            <p className="mt-4">
-              Ready to conquer the online world? Let&apos;s chat!
-            </p>
-          </article>
-
-          {/* Button to navigate to the Founder's page */}
-          <div className="flex justify-center mt-6">
-            <Link
-              href="/rishabhmishra" // Link to the Founder's Page
-              className="flex items-center px-6 py-3 bg-gray-700 text-white font-semibold rounded-lg shadow-md hover:bg-gray-600 transition duration-300"
-            >
-              Read More About Rishabh
-            </Link>
-          </div>
-        </div>
+          Read More →
+        </Link>
       </div>
     </section>
   );

@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title:
     "Who is Rishabh Mishra? | Founder of Social Pulse Agency | Digital Marketing Expert",
   description:
-    "Rishabh Mishra is the Founder & CEO of Social Pulse Agency with 10+ years experience in digital marketing. Specializing in brand strategy, e-commerce optimization, and social media marketing, Rishabh has helped 200+ brands achieve measurable growth through innovative strategies.",
+    "Rishabh Mishra is the Founder & CEO of Social Pulse Agency with 5+ years experience in digital marketing. Specializing in brand strategy, e-commerce optimization, and social media marketing, Rishabh has helped many brands achieve measurable growth through innovative strategies.",
   alternates: {
     // Update canonical to match the non-www version
     canonical: "https://socialpulseagency.in/rishabhmishra",

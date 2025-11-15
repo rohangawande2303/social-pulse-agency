@@ -1,12 +1,5 @@
-import { HoverEffect } from "@/components/ui/card-hover-effect";
-import {
-  PiAppStoreLogo,
-  PiHeadsetFill,
-  PiLock,
-  PiMegaphone,
-  PiMonitor,
-  PiStorefront,
-} from "react-icons/pi";
+import { HoverEffect } from "@/components/ui/card-hover-effect"; // Import the HoverEffect component
+import Image from "next/image";
 
 export function CardHoverEffectDemo() {
   return (
@@ -19,134 +12,98 @@ export function CardHoverEffectDemo() {
 export const projects = [
   {
     icon: (
-      <div className="bg-[#F2E8FF] p-4 rounded-full">
-        <PiMonitor className="w-8 h-8 text-[#8103FF]" />
+      <div className="bg-[#F2E8FF] p-4 rounded-full flex items-center justify-center">
+        <Image
+          src="/images/services/social-media.webp"
+          alt="Social Media Marketing"
+          width={32}
+          height={32}
+        />
       </div>
     ),
-    title: "Website Design",
+    title: "Social Media Marketing",
     description:
-      "We design websites that are easy to use and help you sell more.",
+      "We build strong online presence and grow your brand across social platforms.",
+    url: "/services/social-media-marketing", // Add the URL for navigation
   },
   {
     icon: (
-      <div className="bg-[#F2E8FF] p-4 rounded-full">
-        <PiStorefront className="w-8 h-8 text-[#8103FF]" />
+      <div className="bg-[#F2E8FF] p-4 rounded-full flex items-center justify-center">
+        <Image
+          src="/images/services/google.webp"
+          alt="Google My Business"
+          width={32}
+          height={32}
+        />
       </div>
     ),
-    title: "Local Business Boost",
+    title: "Google My Business (GMB)",
     description:
-      "We optimize your Google My Business profile so customers can find you easily.",
+      "We optimize and manage your GMB profile to get you more local customers.",
+    url: "/services/google-my-business", // Add the URL for navigation
   },
   {
     icon: (
-      <div className="bg-[#F2E8FF] p-4 rounded-full">
-        <PiLock className="w-8 h-8 text-[#8103FF]" />
+      <div className="bg-[#F2E8FF] p-4 rounded-full flex items-center justify-center">
+        <Image
+          src="/images/services/web-development.webp"
+          alt="Web Development"
+          width={32}
+          height={32}
+        />
       </div>
     ),
-    title: "Targeted Ads",
-    description: "We create ads that reach the right people at the right time.",
+    title: "Web Development",
+    description:
+      "We design fast, modern, and user-friendly websites that drive sales.",
+    url: "/services/web-development", // Add the URL for navigation
   },
   {
     icon: (
-      <div className="bg-[#F2E8FF] p-4 rounded-full">
-        <PiMegaphone className="w-8 h-8 text-[#8103FF]" />
+      <div className="bg-[#F2E8FF] p-4 rounded-full flex items-center justify-center">
+        <Image
+          src="/images/services/meta.webp"
+          alt="Meta Ads"
+          width={32}
+          height={32}
+        />
       </div>
     ),
-    title: "Social Media",
-    description: "We manage your social media to build your online community.",
+    title: "Meta Ads",
+    description:
+      "We run targeted Meta ads to reach the right audience at the right time.",
+    url: "/services/meta-ads", // Add the URL for navigation
   },
   {
     icon: (
-      <div className="bg-[#F2E8FF] p-4 rounded-full">
-        <PiAppStoreLogo className="w-8 h-8 text-[#8103FF]" />
+      <div className="bg-[#F2E8FF] p-4 rounded-full flex items-center justify-center">
+        <Image
+          src="/images/services/video-edition.webp"
+          alt="Creatives & Video Editing"
+          width={32}
+          height={32}
+        />
       </div>
     ),
-    title: "Awesome Content",
-    description: "We craft engaging content that people love to read and see.",
+    title: "Creatives & Video Editing",
+    description:
+      "We produce eye-catching designs and videos that connect with your audience.",
+    url: "/services/creatives-video-editing", // Add the URL for navigation
   },
   {
     icon: (
-      <div className="bg-[#F2E8FF] p-4 rounded-full">
-        <PiHeadsetFill className="w-8 h-8 text-[#8103FF]" />
+      <div className="bg-[#F2E8FF] p-4 rounded-full flex items-center justify-center">
+        <Image
+          src="/images/services/seo.webp"
+          alt="SEO"
+          width={32}
+          height={32}
+        />
       </div>
     ),
-    title: "Top Search Result",
-    description: " We help your website rank higher in search engines.",
+    title: "Search Engine Optimization (SEO)",
+    description:
+      "We improve your rankings on Google to bring you consistent organic traffic.",
+    url: "/services/seo", // Add the URL for navigation
   },
 ];
-
-// import { HoverEffect } from "@/components/ui/card-hover-effect";
-// import {
-//   PiAppStoreLogo,
-//   PiHeadsetFill,
-//   PiLock,
-//   PiMegaphone,
-//   PiMonitor,
-//   PiStorefront,
-// } from "react-icons/pi";
-
-// export function CardHoverEffectDemo() {
-//   return (
-//     <div className="max-w-5xl mx-auto px-8">
-//       <HoverEffect items={projects} />
-//     </div>
-//   );
-// }
-// export const projects = [
-//   {
-//     icon: (
-//       <div className="bg-blue-100 p-4 rounded-full">
-//         <PiMonitor className="w-8 h-8 text-blue-600" />
-//       </div>
-//     ),
-//     title: "Website Design",
-//     description:
-//       "We design websites that are easy to use and help you sell more.",
-//   },
-//   {
-//     icon: (
-//       <div className="bg-blue-100 p-4 rounded-full">
-//         <PiStorefront className="w-8 h-8 text-blue-600" />
-//       </div>
-//     ),
-//     title: "Local Business Boost",
-//     description:
-//       "We optimize your Google My Business profile so customers can find you easily.",
-//   },
-//   {
-//     icon: (
-//       <div className="bg-blue-100 p-4 rounded-full">
-//         <PiLock className="w-8 h-8 text-blue-600" />
-//       </div>
-//     ),
-//     title: "Targeted Ads",
-//     description: "We create ads that reach the right people at the right time.",
-//   },
-//   {
-//     icon: (
-//       <div className="bg-blue-100 p-4 rounded-full">
-//         <PiMegaphone className="w-8 h-8 text-blue-600" />
-//       </div>
-//     ),
-//     title: "Social Media",
-//     description: "We manage your social media to build your online community.",
-//   },
-//   {
-//     icon: (
-//       <div className="bg-blue-100 p-4 rounded-full">
-//         <PiAppStoreLogo className="w-8 h-8 text-blue-600" />
-//       </div>
-//     ),
-//     title: "Awesome Content",
-//     description: "We craft engaging content that people love to read and see.",
-//   },
-//   {
-//     icon: (
-//       <div className="bg-blue-100 p-4 rounded-full">
-//         <PiHeadsetFill className="w-8 h-8 text-blue-600" />
-//       </div>
-//     ),
-//     title: "Top Search Result",
-//     description: " We help your website rank higher in search engines.",
-//   },
-// ];

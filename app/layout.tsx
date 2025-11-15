@@ -3,7 +3,7 @@ import Script from "next/script";
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
-
+import ReactLenis from "lenis/react";
 const font = Poppins({ subsets: ["latin"], weight: "400" });
 
 export const metadata: Metadata = {
@@ -165,10 +165,12 @@ export default function RootLayout({
         />
       </head>
       <body suppressHydrationWarning={true} className={font.className}>
-        {/* Vercel Analytics */}
-        <VercelAnalytics />
+        <ReactLenis root>
+          {/* Vercel Analytics */}
+          <VercelAnalytics />
 
-        {children}
+          {children}
+        </ReactLenis>
       </body>
     </html>
   );

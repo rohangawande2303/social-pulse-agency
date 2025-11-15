@@ -1,14 +1,14 @@
 import React from "react";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
-import Image from "next/image"; 
+import Image from "next/image";
 
 const logos = [
   {
-    image: "/logo/Balaji.webp",
+    image: "/logo/Balaji.png",
     name: "Balaji",
   },
   {
-    image: "/logo/Kohinoor.webp",
+    image: "/logo/Kohinoor.png",
     name: "Kohinoor",
   },
   {
@@ -18,6 +18,50 @@ const logos = [
   {
     image: "/logo/Rutu.webp",
     name: "Rutu",
+  },
+  {
+    image: "/logo/mangeshi.png",
+    name: "Mangeshi-Velvet",
+  },
+  {
+    image: "/logo/beqube-logo.png",
+    name: "Beqube",
+  },
+  {
+    image: "/logo/trade-centre-logo.jpg",
+    name: "Trade Centre",
+  },
+  {
+    image: "/logo/north-star-logo.png",
+    name: "North Star",
+  },
+  {
+    image: "/logo/aarav.png",
+    name: "Aarav Realty",
+  },
+  {
+    image: "/logo/ekdant.png",
+    name: "Ekdant Enterprises",
+  },
+  {
+    image: "/logo/mangeshi-universe.png",
+    name: "Mangeshi",
+  },
+  {
+    image: "/logo/pancharatna.png",
+    name: "Pancharatna Developers",
+  },
+  {
+    image: "/logo/mangeshi-world.png",
+    name: "Mangeshi World",
+  },
+  {
+    image: "/logo/parth-lakeview.png",
+    name: "Parth Developer",
+  },
+  {
+    image: "/logo/swaminarayan.png",
+    name: "Swaminarayan",
   },
 ];
 
