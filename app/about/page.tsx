@@ -85,11 +85,12 @@ function StudioStory() {
               textClassName="text-lg md:text-xl text-gray-300 leading-relaxed"
               containerClassName="my-0"
             >
-              We&apos;re Social Pulse, a digital marketing agency fueled by passion
-              and powered by expertise. We craft magnetic campaigns and
+              We&apos;re Social Pulse, a digital marketing agency fueled by
+              passion and powered by expertise. We craft magnetic campaigns and
               data-driven strategies to amplify your brand voice and ignite
               growth. Think of us as your secret weapon in the ever-evolving
-              digital jungle. Ready to conquer the online world? Let&apos;s chat!
+              digital jungle. Ready to conquer the online world? Let&apos;s
+              chat!
             </ScrollReveal>
           </ScrollRevealText>
         </div>
@@ -140,22 +141,12 @@ function FounderSection() {
 
             <div className="flex flex-col gap-2 pt-4">
               <a
-                href="#"
+                href="https://www.linkedin.com/in/rishabh-mishra007/"
                 className="text-white hover:text-gray-300 transition-colors"
-              >
-                Instagram ↗
-              </a>
-              <a
-                href="#"
-                className="text-white hover:text-gray-300 transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 Linkedin ↗
-              </a>
-              <a
-                href="#"
-                className="text-white hover:text-gray-300 transition-colors"
-              >
-                Youtube ↗
               </a>
             </div>
 

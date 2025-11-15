@@ -1,38 +1,257 @@
 "use client";
 
+import React, { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { FaLinkedin } from "react-icons/fa";
-import { motion } from "framer-motion";
+import Script from "next/script";
 import Navbar from "../../components/navbar";
 import Footer from "../../components/footer";
-// import { ThreeDCardExample } from "../../app/snippets/3d-card-snippet";
-import Script from "next/script";
-import Image from "next/image";
-import { MotionWrapper } from "../../components/ui/MotionWrapper";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 
-// Convert to Client Component for interactive features
+function ScrollRevealText({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div
+      ref={ref}
+      className={`transition-all duration-1000 ease-out ${
+        isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+      } ${className}`}
+    >
+      {children}
+    </div>
+  );
+}
+
+function RevealHeading() {
+  const [isVisible, setIsVisible] = useState(false);
+  const headingRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
+
+  return (
+    <div ref={headingRef} className="relative overflow-hidden py-20 md:py-32">
+      <h1
+        className={`text-6xl md:text-7xl lg:text-8xl font-bold text-white text-balance transition-all duration-1000 ease-out transform ${
+          isVisible ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"
+        }`}
+      >
+        Rishabh Mishra
+      </h1>
+      <p className="mt-6 text-xl md:text-2xl text-gray-400">
+        Founder & CEO - Social Pulse Agency
+      </p>
+    </div>
+  );
+}
+
+function FounderIntro() {
+  return (
+    <section className="py-16 md:py-24 px-4 md:px-8">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
+          <ScrollRevealText>
+            <div className="relative aspect-square md:aspect-auto md:h-[600px] bg-gray-900 rounded-lg overflow-hidden">
+              <Image
+                src="/images/team/rishabh1.jpg"
+                alt="Rishabh Mishra, Founder & CEO of Social Pulse Agency"
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
+          </ScrollRevealText>
+
+          <ScrollRevealText className="space-y-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              Who is Rishabh Mishra?
+            </h2>
+
+            <ScrollReveal
+              textClassName="text-lg md:text-xl text-gray-300 leading-relaxed"
+              containerClassName="my-0"
+            >
+              Rishabh Mishra, the visionary Founder & CEO of Social Pulse
+              Agency, is an award-winning digital marketing expert and has great
+              experience in transforming businesses through strategic online
+              solutions. Certified by the Digital Marketing Institute, Rishabh
+              has helped many brands achieve measurable growth through
+              innovative marketing strategies.
+            </ScrollReveal>
+
+            <div className="flex flex-col gap-3 pt-4">
+              <a
+                href="https://www.linkedin.com/in/rishabh-mishra007/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-white hover:text-gray-300 transition-colors text-lg"
+              >
+                <FaLinkedin className="text-2xl" />
+                Connect on LinkedIn ↗
+              </a>
+            </div>
+          </ScrollRevealText>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function LeadershipSection() {
+  return (
+    <section className="py-16 md:py-24 px-4 md:px-8 border-t border-gray-800">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-start">
+          <ScrollRevealText className="md:pt-8">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              Leadership & Achievements
+            </h2>
+          </ScrollRevealText>
+
+          <ScrollRevealText>
+            <ScrollReveal
+              textClassName="text-lg md:text-xl text-gray-300 leading-relaxed"
+              containerClassName="my-0"
+            >
+              Under Rishabh&apos;s guidance, Social Pulse Agency has become
+              recognized as a top digital marketing agency specializing in
+              data-driven social media campaigns, conversion-focused website
+              design, brand identity development, and SEO & content marketing.
+            </ScrollReveal>
+
+            <div className="mt-8 space-y-4">
+              <div className="flex items-start gap-3">
+                <div className="w-2 h-2 bg-white rounded-full mt-2"></div>
+                <p className="text-gray-300 text-lg">
+                  Data-driven social media campaigns
+                </p>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="w-2 h-2 bg-white rounded-full mt-2"></div>
+                <p className="text-gray-300 text-lg">
+                  Conversion-focused website design
+                </p>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="w-2 h-2 bg-white rounded-full mt-2"></div>
+                <p className="text-gray-300 text-lg">
+                  Brand identity development
+                </p>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="w-2 h-2 bg-white rounded-full mt-2"></div>
+                <p className="text-gray-300 text-lg">SEO & content marketing</p>
+              </div>
+            </div>
+          </ScrollRevealText>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function VisionSection() {
+  return (
+    <section className="py-16 md:py-24 px-4 md:px-8 border-t border-gray-800">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-start">
+          <ScrollRevealText className="md:pt-8">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              Our Founder&apos;s Vision
+            </h2>
+          </ScrollRevealText>
+
+          <ScrollRevealText>
+            <div className="bg-gray-900/50 p-8 rounded-lg border border-gray-800">
+              <ScrollReveal
+                textClassName="text-lg md:text-xl text-gray-300 leading-relaxed italic"
+                containerClassName="my-0"
+              >
+                At Social Pulse Agency, we combine creative storytelling with
+                analytical precision to create digital experiences that convert.
+                Our mission is to empower businesses to thrive in the
+                competitive digital landscape through innovative strategies and
+                cutting-edge technology.
+              </ScrollReveal>
+              <p className="text-gray-400 mt-6 text-right">- Rishabh Mishra</p>
+            </div>
+          </ScrollRevealText>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ExpertiseSection() {
+  const expertise = [
+    "Digital Marketing Strategy",
+    "Brand Development",
+    "E-commerce Optimization",
+    "Social Media Marketing",
+    "Web Design & Development",
+    "Shopify Development",
+    "SEO & Analytics",
+    "Content Marketing",
+  ];
+
+  return (
+    <section className="py-16 md:py-24 px-4 md:px-8 border-t border-gray-800">
+      <div className="max-w-7xl mx-auto">
+        <ScrollRevealText className="mb-12">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            Areas of Expertise
+          </h2>
+        </ScrollRevealText>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {expertise.map((skill, index) => (
+            <ScrollRevealText key={index}>
+              <div className="bg-gray-900/50 p-6 rounded-lg border border-gray-800 hover:border-gray-700 transition-colors">
+                <p className="text-gray-300 text-lg font-medium">{skill}</p>
+              </div>
+            </ScrollRevealText>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function FounderPage() {
-  // Scroll functions - client-side functionality
-  const scrollToWebsiteDesign = () => {
-    console.log("Scrolling to Website Design");
-  };
+  const scrollToWebsiteDesign = () => {};
+  const scrollToGraphicDesign = () => {};
+  const scrollToShopifyStores = () => {};
+  const scrollToBrands = () => {};
+  const scrollToServices = () => {};
 
-  const scrollToGraphicDesign = () => {
-    console.log("Scrolling to Graphic Design");
-  };
-
-  const scrollToShopifyStores = () => {
-    console.log("Scrolling to Shopify Stores");
-  };
-
-  const scrollToBrands = () => {
-    console.log("Scrolling to Brands");
-  };
-
-  const scrollToServices = () => {
-    console.log("Scrolling to Services");
-  };
-
-  // Schema markup - enhanced with more properties
+  // Schema markup
   const schema = {
     "@context": "https://schema.org",
     "@type": "Person",
@@ -42,7 +261,7 @@ export default function FounderPage() {
     familyName: "Mishra",
     jobTitle: "Founder & CEO",
     description:
-      "Rishabh Mishra, Founder & CEO of Social Pulse Agency - Award-winning digital marketing expert with 10+ years experience in brand development, visual storytelling, and ROI-driven marketing strategies. Certified professional specializing in Shopify stores, website design, and social media marketing.",
+      "Rishabh Mishra, Founder & CEO of Social Pulse Agency - Award-winning digital marketing expert with 10+ years experience in brand development, visual storytelling, and ROI-driven marketing strategies.",
     image: "https://www.socialpulseagency.in/rishabhmishra.png",
     url: "https://www.socialpulseagency.in/rishabhmishra",
     sameAs: [
@@ -53,35 +272,9 @@ export default function FounderPage() {
       "@type": "Organization",
       name: "Social Pulse Agency",
       url: "https://www.socialpulseagency.in",
-      description:
-        "Leading digital marketing agency specializing in brand development, e-commerce, and social media marketing",
-    },
-    alumniOf: {
-      "@type": "Organization",
-      name: "Digital Marketing Institute",
-    },
-    knowsAbout: [
-      "Digital Marketing",
-      "Brand Strategy",
-      "E-commerce",
-      "Social Media Marketing",
-      "Web Design",
-      "Shopify Development",
-      "SEO",
-      "Content Marketing",
-    ],
-    award: "Best Digital Marketing Professional 2023",
-    hasOccupation: {
-      "@type": "Occupation",
-      name: "Digital Marketing Expert",
-      description:
-        "Specializing in brand strategy, e-commerce optimization, and social media marketing",
-      skills:
-        "SEO, Social Media Marketing, Brand Development, E-commerce, Web Design",
     },
   };
 
-  // FAQ Schema for additional SEO value
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -91,60 +284,19 @@ export default function FounderPage() {
         name: "Who is Rishabh Mishra?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Rishabh Mishra is the Founder & CEO of Social Pulse Agency, an award-winning digital marketing expert with over 10 years of experience in transforming businesses through strategic online solutions. He is certified by the Digital Marketing Institute and has helped 200+ brands achieve measurable growth through innovative marketing strategies.",
+          text: "Rishabh Mishra is the Founder & CEO of Social Pulse Agency, an award-winning digital marketing expert with over 10 years of experience in transforming businesses through strategic online solutions.",
         },
       },
-      {
-        "@type": "Question",
-        name: "Who is the founder of Social Pulse Agency?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Rishabh Mishra is the founder and CEO of Social Pulse Agency. Under his leadership, the agency has become recognized as a top digital marketing agency specializing in e-commerce optimization, data-driven social media campaigns, conversion-focused website design, brand identity development, and SEO & content marketing.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "What services does Rishabh Mishra's agency offer?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Social Pulse Agency, founded by Rishabh Mishra, offers a comprehensive range of digital marketing services including e-commerce optimization (Shopify & WooCommerce), data-driven social media campaigns, conversion-focused website design, brand identity development, and SEO & content marketing.",
-        },
-      },
-    ],
-  };
-
-  // Organization Schema for additional context
-  const organizationSchema = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "Social Pulse Agency",
-    url: "https://www.socialpulseagency.in",
-    logo: "https://www.socialpulseagency.in/logo.png",
-    founder: {
-      "@type": "Person",
-      name: "Rishabh Mishra",
-      url: "https://www.socialpulseagency.in/rishabhmishra",
-    },
-    description:
-      "Social Pulse Agency is a leading digital marketing agency specializing in brand development, e-commerce optimization, and social media marketing strategies.",
-    sameAs: [
-      "https://www.linkedin.com/company/social-pulse-agency",
-      "https://www.facebook.com/socialpulseagency",
-      "https://www.instagram.com/socialpulseagency",
     ],
   };
 
   return (
-    <div className="min-h-screen bg-black text-white relative overflow-hidden">
-      {/* Schema.org structured data */}
+    <main className="bg-black min-h-screen">
       <Script id="person-schema" type="application/ld+json">
         {JSON.stringify(schema)}
       </Script>
       <Script id="faq-schema" type="application/ld+json">
         {JSON.stringify(faqSchema)}
-      </Script>
-      <Script id="organization-schema" type="application/ld+json">
-        {JSON.stringify(organizationSchema)}
       </Script>
 
       <Navbar
@@ -155,105 +307,26 @@ export default function FounderPage() {
         scrollToServices={scrollToServices}
       />
 
-      <section className="p-4 mx-auto relative z-10 w-full pt-20 md:pt-24 bg-gradient-to-b from-[#171717] via-[#1E1E1E] to-[#171717]">
-        <header>
-          <h1 className="text-4xl md:pb-8 md:text-7xl text-center bg-clip-text text-transparent bg-gradient-to-b from-[#8103FF] to-sky-200 bg-opacity-50">
-            Rishabh Mishra - Digital Marketing Expert & Founder
-          </h1>
-          <p className="mt-4 text-lg font-normal text-neutral-300 max-w-lg text-center mx-auto">
-            CEO of Social Pulse Agency | Certified Digital Marketing Strategist
-            | Brand Development Specialist
-          </p>
-        </header>
-
-        <div className="flex flex-col md:flex-row items-center justify-center mt-10 md:space-x-1 pb-24">
-          {/* Client-side motion component with animation */}
-          <MotionWrapper>
-            <div className="w-full md:w-1/3 flex flex-col items-center justify-center">
-              <div className="w-full flex justify-center">
-                <Image
-                  src="/rishabhmishra.png"
-                  alt="Rishabh Mishra, Founder & CEO of Social Pulse Agency"
-                  width={800} // Increase base width
-                  height={1000} // Increase base height
-                  priority
-                  className="rounded-lg w-4/5 md:w-full md:h-auto md:max-h-none"
-                  sizes="(max-width: 768px) 80vw, (max-width: 1200px) 50vw, 33vw"
-                  style={{
-                    maxWidth: "100%",
-                    minWidth: "280px",
-                    objectFit: "cover",
-                  }}
-                />
-              </div>
-              <h2 className="text-lg md:text-2xl font-bold text-neutral-300 text-center pt-6 whitespace-nowrap">
-                Founder & CEO - Rishabh Mishra
-              </h2>
-            </div>
-          </MotionWrapper>
-
-          <div className="w-full md:w-1/2 mt-10 md:mt-0 flex flex-col justify-center">
-            <article className="text-lg md:text-xl text-neutral-300 text-center md:text-left md:pb-12">
-              <h2 className="text-2xl font-bold mb-4">
-                Who is Rishabh Mishra?
-              </h2>
-              <p>
-                <strong>Rishabh Mishra</strong>, the visionary{" "}
-                <strong>Founder & CEO of Social Pulse Agency</strong>, is an
-                award-winning digital marketing expert and has great experience
-                in transforming businesses through strategic online solutions.
-                Certified by the Digital Marketing Institute, Rishabh has helped
-                many brands achieve measurable growth through innovative
-                marketing strategies.
-              </p>
-            </article>
-
-            <article className="text-lg md:text-xl text-neutral-300 text-center md:text-left mt-6">
-              <h3 className="text-xl font-semibold mb-3">
-                Leadership & Achievements
-              </h3>
-              <p>
-                Under Rishabh&apos;s guidance, Social Pulse Agency has become
-                recognized as a top digital marketing agency specializing in:
-              </p>
-              <ul className="list-disc pl-6 mt-2">
-                <li>Data-driven social media campaigns</li>
-                <li>Conversion-focused website design</li>
-                <li>Brand identity development</li>
-                <li>SEO & content marketing</li>
-              </ul>
-            </article>
-
-            <article className="mt-6 text-lg md:text-xl text-neutral-300">
-              <h3 className="text-xl font-semibold mb-3">
-                Our Founder&apos;s Vision
-              </h3>
-              <p>
-                &ldquo;At Social Pulse Agency, we combine creative storytelling
-                with analytical precision to create digital experiences that
-                convert. Our mission is to empower businesses to thrive in the
-                competitive digital landscape through innovative strategies and
-                cutting-edge technology.&rdquo;
-              </p>
-            </article>
-
-            <div className="flex justify-center mt-8">
-              <a
-                href="https://www.linkedin.com/in/rishabh-mishra007/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-all duration-300"
-                aria-label="Connect with Rishabh Mishra on LinkedIn"
-              >
-                <FaLinkedin className="mr-2 text-xl" />
-                Connect with Rishabh
-              </a>
-            </div>
-          </div>
+      {/* Header Section */}
+      <div className="px-4 md:px-8 pt-20">
+        <div className="max-w-7xl mx-auto">
+          <RevealHeading />
         </div>
-      </section>
+      </div>
+
+      {/* Founder Intro Section */}
+      <FounderIntro />
+
+      {/* Leadership Section */}
+      <LeadershipSection />
+
+      {/* Vision Section */}
+      <VisionSection />
+
+      {/* Expertise Section */}
+      <ExpertiseSection />
 
       <Footer />
-    </div>
+    </main>
   );
 }
