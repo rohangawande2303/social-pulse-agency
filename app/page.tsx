@@ -8,7 +8,7 @@ import Footer from "@/components/footer";
 import GraphicDesign from "./graphic-design";
 import Services from "./services";
 import Faq from "./faq";
-import { InfiniteMovingCardsDemo } from "./snippets/infinite-moving-card-snippet";
+import InfiniteMovingCardsDemo from "./snippets/infinite-moving-card-snippet";
 import LocationSection from "./LocationSection";
 import React from "react";
 import Brands from "./brands";

@@ -263,7 +263,7 @@ export const allProjects: Project[] = [
 export const servicesData: ServiceData[] = [
   {
     slug: "web-development",
-    title: "Web Development Services in Thane",
+    title: "Web Development Services in Thane", 
     metaTitle:
       "Website Design and Development Company in Thane | Professional Web Development in Mumbai & India",
     metaDescription:

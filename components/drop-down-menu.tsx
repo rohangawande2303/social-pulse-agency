@@ -9,14 +9,14 @@ interface DropDownMenuProps {
 }
 
 const services = [
-  { title: "Social Media Marketing", href: "/social-media-marketing" },
-  { title: "Google My Business (GMB)", href: "/google-my-business" },
-  { title: "Web Development", href: "/web-development" },
-  { title: "Meta Ads", href: "/meta-ads" },
-  { title: "Creatives & Video Editing", href: "/creatives-video-editing" },
+  { title: "Social Media Marketing", href: "/services/social-media-marketing" },
+  { title: "Google My Business (GMB)", href: "/services/google-my-business" },
+  { title: "Web Development", href: "/services/web-development" },
+  { title: "Meta Ads", href: "/services/meta-ads" },
+  { title: "Creatives & Video Editing", href: "/services/creatives" },
   {
     title: "Search Engine Optimization (SEO)",
-    href: "/search-engine-optimization",
+    href: "/services/seo",
   },
 ];
 
@@ -46,11 +46,7 @@ const DropDownMenu: React.FC<DropDownMenuProps> = ({
       transition={{ duration: 0.5 }}
     >
       <div className="flex-col flex space-y-10">
-        <Link
-          href="/about"
-          className="text-black text-2xl"
-          onClick={onClose}
-        >
+        <Link href="/about" className="text-black text-2xl" onClick={onClose}>
           About Us
         </Link>
         <Link href="/contact" className="text-black text-2xl" onClick={onClose}>

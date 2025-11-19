@@ -8,7 +8,7 @@ export const InfiniteMovingCards = ({
   speed = "fast",
   pauseOnHover = true,
   className,
-  showTitle = true,  // Add showTitle prop to control rendering of title
+  showTitle = true, // Add showTitle prop to control rendering of title
 }: {
   items: {
     quote: string;
@@ -20,7 +20,7 @@ export const InfiniteMovingCards = ({
   speed?: "fast" | "normal" | "slow";
   pauseOnHover?: boolean;
   className?: string;
-  showTitle?: boolean;  // Add showTitle prop to the type definition
+  showTitle?: boolean; // Add showTitle prop to the type definition
 }) => {
   const containerRef = React.useRef<HTMLDivElement>(null);
   const scrollerRef = React.useRef<HTMLUListElement>(null);
@@ -51,9 +51,15 @@ export const InfiniteMovingCards = ({
   const getDirection = () => {
     if (containerRef.current) {
       if (direction === "left") {
-        containerRef.current.style.setProperty("--animation-direction", "forwards");
+        containerRef.current.style.setProperty(
+          "--animation-direction",
+          "forwards"
+        );
       } else {
-        containerRef.current.style.setProperty("--animation-direction", "reverse");
+        containerRef.current.style.setProperty(
+          "--animation-direction",
+          "reverse"
+        );
       }
     }
   };
@@ -89,10 +95,12 @@ export const InfiniteMovingCards = ({
         {items.map((item, idx) => (
           <li
             key={idx}
-            className="w-[350px] max-w-full relative rounded-2xl border border-b-0 flex-shrink-0 border-slate-700 px-8 py-6 md:w-[450px]"
+            className="w-[380px] md:w-[460px] max-w-full relative flex-shrink-0 rounded-[32px] px-10 py-10"
             style={{
-              background:
-                "linear-gradient(180deg, var(--slate-800), var(--slate-900))",
+              background: "rgba(255,255,255,0.08)",
+              backdropFilter: "blur(14px)",
+              WebkitBackdropFilter: "blur(14px)",
+              border: "1px solid rgba(255,255,255,0.12)",
             }}
           >
             <blockquote>
@@ -121,11 +129,12 @@ export const InfiniteMovingCards = ({
                   <span className="text-sm leading-[1.6] text-gray-400 font-normal">
                     {item.name}
                   </span>
-                  {showTitle && item.title && (  // Conditionally render title based on showTitle
-                    <span className="text-sm leading-[1.6] text-gray-400 font-normal">
-                      {item.title}
-                    </span>
-                  )}
+                  {showTitle &&
+                    item.title && ( // Conditionally render title based on showTitle
+                      <span className="text-sm leading-[1.6] text-gray-400 font-normal">
+                        {item.title}
+                      </span>
+                    )}
                 </span>
               </div>
             </blockquote>
