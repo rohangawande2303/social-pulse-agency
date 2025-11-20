@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, SubmitHandler } from "react-hook-form";
 import * as z from "zod";
@@ -52,9 +52,10 @@ const FormSchema = z.object({
   services: z.enum([
     "Website Development",
     "Social Media Marketing",
-    "UI/UX Design",
+    "META ads",
     "SEO",
-    "Branding",
+    "Creatives",
+    "Google my Business",
   ]),
   info: z.string(),
   terms: z.boolean(),
@@ -78,6 +79,7 @@ export default function ContactForm() {
       help: "Learn More",
       services: "Website Development",
       info: "",
+      terms: false,
     },
   });
 
@@ -105,12 +107,24 @@ export default function ContactForm() {
     }
   };
 
+  // Auto-reset after 5 seconds when submitted
+  useEffect(() => {
+    if (submitted) {
+      const timer = setTimeout(() => {
+        setSubmitted(false);
+        form.reset();
+      }, 5000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [submitted, form]);
+
   return (
     <div className="w-full md:items-center md:justify-center bg-black/[0.96] antialiased bg-grid-white/[0.02] relative overflow-hidden">
       <Navbar
         scrollToWebsiteDesign={() => {}}
         scrollToGraphicDesign={() => {}}
-        scrollToShopifyStores={() => {}} 
+        scrollToShopifyStores={() => {}}
         scrollToBrands={() => {}}
         scrollToServices={() => {}}
       />
@@ -342,11 +356,12 @@ export default function ContactForm() {
                         <SelectItem value="Social Media Marketing">
                           Social Media Marketing
                         </SelectItem>
-                        <SelectItem value="UI/UX Design">
-                          UI/UX Design
-                        </SelectItem>
+                        <SelectItem value="META ads">META ads</SelectItem>
                         <SelectItem value="SEO">SEO</SelectItem>
-                        <SelectItem value="Branding">Branding</SelectItem>
+                        <SelectItem value="Creatives">Creatives</SelectItem>
+                        <SelectItem value="Google my Business">
+                          Google my Business
+                        </SelectItem>
                       </SelectContent>
                     </Select>
                   </FormItem>
@@ -399,9 +414,9 @@ export default function ContactForm() {
               </Button>
             </form>
           ) : (
-            <div className="text-center">
-              <PiSmiley className="text-5xl text-green-500 mb-4" />
-              <h2 className="text-2xl font-medium mb-4">
+            <div className="text-center border rounded-3xl p-10 md:w-1/3 w-full">
+              <PiSmiley className="text-6xl text-green-500 mb-4 mx-auto" />
+              <h2 className="text-2xl font-medium mb-4 bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">
                 Thank you for reaching out!
               </h2>
               <p className="text-gray-300">
