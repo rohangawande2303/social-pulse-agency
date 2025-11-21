@@ -3,6 +3,8 @@
 import { useState, useEffect } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, SubmitHandler } from "react-hook-form";
+import AnimatedButton from "../../components/ui/AnimatedButton";
+
 import * as z from "zod";
 import {
   FaEnvelope,
@@ -66,6 +68,8 @@ type FormValues = z.infer<typeof FormSchema>;
 export default function ContactForm() {
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [pdfMessage, setPdfMessage] = useState("");
+
   const { toast } = useToast();
 
   const form = useForm<FormValues>({
@@ -104,6 +108,20 @@ export default function ContactForm() {
       });
     } finally {
       setLoading(false);
+    }
+  };
+  // Manual submit for PDF download (sends form data to Google Sheets)
+  const submitToGoogleSheet = async () => {
+    try {
+      const data = form.getValues(); // get all form values
+
+      await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+    } catch (error) {
+      console.error("Google Sheet submission failed", error);
     }
   };
 
@@ -221,6 +239,49 @@ export default function ContactForm() {
                   </a>
                 </li>
               </ul>
+            </div>
+          </div>
+
+          {/* Portfolio PDF Section */}
+          <div className="bg-[#f6f5f4] md:w-4/5 space-y-4 p-6 rounded-2xl my-4 hidden md:block">
+            <div className="text-center">
+              <h3 className="text-2xl font-medium mb-2 text-gray-800">
+                Our Portfolio
+              </h3>
+              <p className="text-gray-600 text-sm mb-4">
+                Explore our work and see how we&apos;ve helped brands grow
+              </p>
+
+              {/* Center the button */}
+              <div className="flex justify-center">
+                <AnimatedButton
+                  className="!w-40 !justify-center"
+                  label="Download"
+                  textColor="text-black"
+                  onClick={async () => {
+  if (!submitted) {
+    setPdfMessage("Please submit the form to download the portfolio.");
+    return;
+  }
+
+  setPdfMessage("");
+
+  // Submit data again to Google Sheet
+  await submitToGoogleSheet();
+
+  // Download PDF
+  const link = document.createElement("a");
+  link.href = "/SOCIAL PULSE AGENCY - DIGITAL PORTFOLIO.pdf";
+  link.download = "SocialPulse-Portfolio.pdf";
+  link.click();
+}}
+
+                />
+              </div>
+
+              {pdfMessage && (
+                <p className="text-red-400 text-sm mt-2">{pdfMessage}</p>
+              )}
             </div>
           </div>
         </div>
@@ -400,18 +461,14 @@ export default function ContactForm() {
                   </FormItem>
                 )}
               />
-              <Button
-                type="submit"
-                className="w-full"
-                disabled={loading}
-                style={{
-                  backgroundImage:
-                    "linear-gradient(to right, #FF416C, #FF4B2B)",
-                  borderRadius: "24px",
-                }}
-              >
-                {loading ? "Submitting..." : "Submit"}
-              </Button>
+              <div className="w-full flex justify-center">
+                <AnimatedButton
+                  label={loading ? "Submitting..." : "Submit"}
+                  textColor="text-white"
+                  purple
+                  className="!w-40 !justify-center"
+                />
+              </div>
             </form>
           ) : (
             <div className="text-center border rounded-3xl p-10 md:w-1/3 w-full">
