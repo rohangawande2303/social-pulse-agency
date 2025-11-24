@@ -12,6 +12,7 @@ import InfiniteMovingCardsDemo from "./snippets/infinite-moving-card-snippet";
 import LocationSection from "./LocationSection";
 import React from "react";
 import Brands from "./brands";
+import ProjectsMap from "./ProjectsMap";
 import LightRays from "../components/ui/LightRays";
 
 const words = [
@@ -176,6 +177,7 @@ export default function Home() {
         </div>
 
         <InfiniteMovingCardsDemo />
+        <ProjectsMap/>
         <LocationSection />
         <Faq />
         <Footer />
