@@ -57,7 +57,7 @@ export async function generateMetadata({
         addressCountry: "IN",
       },
       telephone: "+91-8451951123",
-      url: "https://yourdomain.com", // Replace with your actual domain
+      url: "https://www.socialpulseagency.in/", // Replace with your actual domain
     },
     areaServed: service.schema.areaServed,
     offers: {

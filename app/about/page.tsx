@@ -8,6 +8,9 @@ import Footer from "../../components/footer";
 import Navbar from "../../components/navbar";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 
+
+
+
 function ScrollRevealText({
   children,
   className,
@@ -39,9 +42,8 @@ function ScrollRevealText({
   return (
     <div
       ref={ref}
-      className={`transition-all duration-1000 ease-out ${
-        isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-      } ${className}`}
+      className={`transition-all duration-1000 ease-out ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+        } ${className}`}
     >
       {children}
     </div>
@@ -59,9 +61,8 @@ function RevealHeading() {
   return (
     <div ref={headingRef} className="relative overflow-hidden py-20 md:py-32">
       <h1
-        className={`text-6xl md:text-7xl lg:text-8xl font-bold text-white text-balance transition-all duration-1000 ease-out transform ${
-          isVisible ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"
-        }`}
+        className={`text-6xl md:text-7xl lg:text-8xl font-bold text-white text-balance transition-all duration-1000 ease-out transform ${isVisible ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"
+          }`}
       >
         About Us
       </h1>
@@ -170,7 +171,7 @@ function TeamSection() {
     {
       name: "Rohan Gawande",
       position: "Tech Head at Social Pulse Agency",
-      image: "/images/team/rohan1.png",
+      image: "/images/team/rohan-banner.png",
     },
     {
       name: "Mamta wadhwani",
@@ -211,11 +212,11 @@ function TeamSection() {
 
 export default function AboutPage() {
   // Dummy scroll functions (because About page does not use them)
-  const scrollToWebsiteDesign = () => {};
-  const scrollToGraphicDesign = () => {};
-  const scrollToShopifyStores = () => {};
-  const scrollToBrands = () => {};
-  const scrollToServices = () => {};
+  const scrollToWebsiteDesign = () => { };
+  const scrollToGraphicDesign = () => { };
+  const scrollToShopifyStores = () => { };
+  const scrollToBrands = () => { };
+  const scrollToServices = () => { };
 
   return (
     <main className="bg-black min-h-screen">

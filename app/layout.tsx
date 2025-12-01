@@ -7,8 +7,10 @@ import ReactLenis from "lenis/react";
 const font = Poppins({ subsets: ["latin"], weight: "400" });
 
 export const metadata: Metadata = {
-  title:
-    "Best Digital Marketing Agency in Thane | SEO, Social Media & Web Design Services | Social Pulse Agency",
+  title: {
+    template: "%s - Social Pulse Agency",
+    default: "Social Pulse Agency"
+  },
   description:
     "Social Pulse Agency is Thane's leading digital marketing agency, offering SEO, social media marketing, PPC, and web design services to grow your business online. Get in touch today!",
   keywords: [
@@ -51,7 +53,7 @@ export default function RootLayout({
             Array.isArray(metadata.keywords)
               ? metadata.keywords.join(", ")
               : metadata.keywords ||
-                "digital marketing, SEO, Thane, Social Pulse Agency"
+              "digital marketing, SEO, Thane, Social Pulse Agency"
           }
         />
         {/* Check if robots is a string, otherwise provide a default */}

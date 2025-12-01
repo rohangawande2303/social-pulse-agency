@@ -17,12 +17,28 @@ export default function ServiceFAQ({ title, faqs }: ServiceFAQProps) {
     setOpenIndex(openIndex === index ? null : index);
   };
 
+  // Generate JSON-LD Schema
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map((faq) => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer,
+      },
+    })),
+  };
+
   return (
-    <section
-      className="py-24 bg-[#111] text-white"
-      itemScope
-      itemType="https://schema.org/FAQPage"
-    >
+    <section className="py-24 bg-[#111] text-white">
+      {/* Inject JSON-LD Schema here */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+
       <div className="max-w-6xl mx-auto px-6">
         <div className="bg-[#1a1a1a] rounded-3xl p-12 md:p-16 flex flex-col md:flex-row gap-16">
           {/* Left Side Heading */}
@@ -38,13 +54,7 @@ export default function ServiceFAQ({ title, faqs }: ServiceFAQProps) {
           {/* Right Side FAQs */}
           <div className="md:w-2/3 space-y-6">
             {faqs.map((faq, index) => (
-              <div
-                key={index}
-                itemScope
-                itemProp="mainEntity"
-                itemType="https://schema.org/Question"
-                className="border-b border-white/10 pb-4"
-              >
+              <div key={index} className="border-b border-white/10 pb-4">
                 <button
                   onClick={() => toggleFAQ(index)}
                   className="w-full flex items-center justify-between text-left group"
@@ -52,23 +62,20 @@ export default function ServiceFAQ({ title, faqs }: ServiceFAQProps) {
                 >
                   {/* Question text */}
                   <h3
-                    itemProp="name"
-                    className={`text-lg md:text-xl font-medium transition-colors ${
-                      openIndex === index
+                    className={`text-lg md:text-xl font-medium transition-colors ${openIndex === index
                         ? "text-transparent bg-clip-text bg-gradient-to-r from-[#8103FF] to-[#b34dff]"
                         : "text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#8103FF] group-hover:to-[#b34dff]"
-                    }`}
+                      }`}
                   >
                     {faq.question}
                   </h3>
 
                   {/* Chevron Icon */}
                   <ChevronDown
-                    className={`w-6 h-6 transition-transform duration-300 ${
-                      openIndex === index
+                    className={`w-6 h-6 transition-transform duration-300 ${openIndex === index
                         ? "rotate-180 text-transparent bg-clip-text bg-gradient-to-r from-[#8103FF] to-[#b34dff]"
                         : "text-gray-400 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#8103FF] group-hover:to-[#b34dff]"
-                    }`}
+                      }`}
                   />
                 </button>
 
@@ -80,14 +87,8 @@ export default function ServiceFAQ({ title, faqs }: ServiceFAQProps) {
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3, ease: "easeInOut" }}
-                      itemScope
-                      itemProp="acceptedAnswer"
-                      itemType="https://schema.org/Answer"
                     >
-                      <p
-                        itemProp="text"
-                        className="text-gray-300 mt-3 leading-relaxed"
-                      >
+                      <p className="text-gray-300 mt-3 leading-relaxed">
                         {faq.answer}
                       </p>
                     </motion.div>
