@@ -20,6 +20,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.8,
     },
+    {
+      url: "https://www.socialpulseagency.in/rishabhmishra",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
     // Services Pages
     {
       url: "https://www.socialpulseagency.in/services/web-development",
