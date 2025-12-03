@@ -150,10 +150,17 @@ export async function generateMetadata({
     other: {
       "application/ld+json": JSON.stringify([
         jsonLd,
-        faqSchema,
+        // faqSchema removed  ✅
         breadcrumbSchema,
       ]),
     },
+    // other: {
+    //   "application/ld+json": JSON.stringify([
+    //     jsonLd,
+    //     faqSchema,
+    //     breadcrumbSchema,
+    //   ]),
+    // },
   };
 }
 

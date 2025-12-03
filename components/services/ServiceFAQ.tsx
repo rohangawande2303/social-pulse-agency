@@ -18,26 +18,26 @@ export default function ServiceFAQ({ title, faqs }: ServiceFAQProps) {
   };
 
   // Generate JSON-LD Schema
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": faqs.map((faq) => ({
-      "@type": "Question",
-      "name": faq.question,
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": faq.answer,
-      },
-    })),
-  };
+  // const faqSchema = {
+  //   "@context": "https://schema.org",
+  //   "@type": "FAQPage",
+  //   "mainEntity": faqs.map((faq) => ({
+  //     "@type": "Question",
+  //     "name": faq.question,
+  //     "acceptedAnswer": {
+  //       "@type": "Answer",
+  //       "text": faq.answer,
+  //     },
+  //   })),
+  // };
 
   return (
     <section className="py-24 bg-[#111] text-white">
       {/* Inject JSON-LD Schema here */}
-      <script
+      {/* <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      /> */}
 
       <div className="max-w-6xl mx-auto px-6">
         <div className="bg-[#1a1a1a] rounded-3xl p-12 md:p-16 flex flex-col md:flex-row gap-16">
@@ -62,20 +62,22 @@ export default function ServiceFAQ({ title, faqs }: ServiceFAQProps) {
                 >
                   {/* Question text */}
                   <h3
-                    className={`text-lg md:text-xl font-medium transition-colors ${openIndex === index
+                    className={`text-lg md:text-xl font-medium transition-colors ${
+                      openIndex === index
                         ? "text-transparent bg-clip-text bg-gradient-to-r from-[#8103FF] to-[#b34dff]"
                         : "text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#8103FF] group-hover:to-[#b34dff]"
-                      }`}
+                    }`}
                   >
                     {faq.question}
                   </h3>
 
                   {/* Chevron Icon */}
                   <ChevronDown
-                    className={`w-6 h-6 transition-transform duration-300 ${openIndex === index
+                    className={`w-6 h-6 transition-transform duration-300 ${
+                      openIndex === index
                         ? "rotate-180 text-transparent bg-clip-text bg-gradient-to-r from-[#8103FF] to-[#b34dff]"
                         : "text-gray-400 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#8103FF] group-hover:to-[#b34dff]"
-                      }`}
+                    }`}
                   />
                 </button>
 
