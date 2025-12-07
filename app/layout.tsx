@@ -9,10 +9,10 @@ const font = Poppins({ subsets: ["latin"], weight: "400" });
 export const metadata: Metadata = {
   title: {
     template: "%s - Social Pulse Agency",
-    default: "Social Pulse Agency - Best Digital Marketing Agency in Thane",
+    default: "Best Digital Marketing Agency in Thane & Mumbai | Social Pulse Agency",
   },
   description:
-    "Social Pulse Agency is Thane's leading digital marketing agency, offering SEO, social media marketing, PPC, and web design services to grow your business online. Get in touch today!",
+    "Social Pulse Agency is the best digital marketing agency in Thane, Mumbai offering expert SEO, Meta Ads, Web Development, Google Ads, Social Media Marketing services. 3+ years experience serving businesses in Thane Kalyan, Dombivli, Navi Mumbai, Pune.",
   keywords: [
     "digital marketing agency Thane",
     "SEO Thane",
@@ -203,7 +203,7 @@ export default function RootLayout({
               priceRange: "$$",
               address: {
                 "@type": "PostalAddress",
-                streetAddress: "Your Address in Thane",
+                streetAddress: "Shop no 17, Shree Kolungade CHS LTD, C-Wing, opp. Jagmata Mandir, Kolungade Society, Uthalsar, Thane West",
                 addressLocality: "Thane",
                 addressRegion: "Maharashtra",
                 postalCode: "400601",
