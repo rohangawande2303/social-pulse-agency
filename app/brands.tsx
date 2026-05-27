@@ -63,6 +63,22 @@ const logos = [
     image: "/logo/swaminarayan.png",
     name: "Swaminarayan",
   },
+  {
+    image: "/logo/venus-skky-city.png",
+    name: "Venus Skky City",
+  },
+  {
+    image: "/logo/bellagio.png",
+    name: "SSL Bellagio",
+  },
+  {
+    image: "/logo/Landmark.png",
+    name: "Landmark Developer",
+  },
+  {
+    image: "/logo/balaji-classsica.jpg",
+    name: "Balaji Classica",
+  },
 ];
 
 const Brands = () => {

@@ -257,6 +257,42 @@ export const allProjects: Project[] = [
     clientName: "Swaminarayan",
     link: "#",
   },
+  {
+    id: "project-17",
+    title: "Landmark Aristo",
+    description: "Real Estate Lead Generation Website",
+    image: "/images/services/mockup/mockup9.png",
+    category: ["web-development", "seo", "meta-ads", "creatives"],
+    clientName: "Landmark",
+    link: "#",
+  },
+  {
+    id: "project-18",
+    title: "Balaji Classic",
+    description: "Real Estate Lead Generation Website",
+    image: "/images/services/mockup/mockup10.webp",
+    category: ["web-development", "seo", "meta-ads", "creatives"],
+    clientName: "SSL",
+    link: "#",
+  },
+  {
+    id: "project-19",
+    title: "Venus Skky City",
+    description: "Real Estate Lead Generation Website",
+    image: "/logo/venus-skky-city.png",
+    category: ["meta-ads", "creatives"],
+    clientName: "SSL",
+    link: "#",
+  },
+  {
+    id: "project-20",
+    title: "SSL Belagio",
+    description: "Real Estate Lead Generation Website",
+    image: "/logo/bellagio.png",
+    category: ["web-development", "seo", "meta-ads", "creatives"],
+    clientName: "SSL",
+    link: "#",
+  },
 ];
 
 // Services Data
@@ -382,6 +418,9 @@ export const servicesData: ServiceData[] = [
       "project-12",
       "project-13",
       "project-14",
+      "project-17",
+      "project-18",
+
     ],
 
     detailedOfferings: [
@@ -1060,6 +1099,9 @@ export const servicesData: ServiceData[] = [
       "project-14",
       "project-15",
       "project-16",
+      "project-18",
+      "project-19",
+      "project-20",
     ],
 
     detailedOfferings: [
@@ -1306,7 +1348,9 @@ export const servicesData: ServiceData[] = [
       "project-13",
       "project-14",
       "project-15",
-      "project-16",
+      "project-17",
+      "project-18",
+      "project-19",
     ],
 
     detailedOfferings: [

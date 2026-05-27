@@ -89,15 +89,15 @@ const ProjectsMap: React.FC = () => {
     {
       id: "10",
       location: "Dombivli",
-      clientName: "Balaji Clasic",
-      status: "completed",
+      clientName: "Balaji Classica",
+      status: "ongoing",
       mapsLink: "https://maps.google.com/?q=Kalyan",
     },
     {
       id: "11",
       location: "Dombivli",
       clientName: "Venus Skycity",
-      status: "completed",
+      status: "ongoing",
       mapsLink: "https://maps.google.com/?q=Kalyan",
     },
     {
@@ -112,6 +112,20 @@ const ProjectsMap: React.FC = () => {
       location: "Dombivli",
       clientName: "Swaminarayan City",
       status: "completed",
+      mapsLink: "https://maps.google.com/?q=Kalyan",
+    },
+    {
+      id: "14",
+      location: "Dombivli",
+      clientName: "Landmark",
+      status: "ongoing",
+      mapsLink: "https://maps.google.com/?q=Kalyan",
+    },
+    {
+      id: "15",
+      location: "Dombivli",
+      clientName: "SSL Bellagio",
+      status: "ongoing",
       mapsLink: "https://maps.google.com/?q=Kalyan",
     },
     // Add more projects freely – same city = grouped automatically
@@ -212,9 +226,8 @@ const ProjectsMap: React.FC = () => {
                     aria-label={`View projects in ${city.location}`}
                   >
                     <div
-                      className={`relative transition-transform duration-300 ${
-                        isActive ? "scale-150" : "scale-100 hover:scale-125"
-                      }`}
+                      className={`relative transition-transform duration-300 ${isActive ? "scale-150" : "scale-100 hover:scale-125"
+                        }`}
                     >
                       {/* Glow */}
                       <div
@@ -252,11 +265,10 @@ const ProjectsMap: React.FC = () => {
                                     {proj.clientName}
                                   </p>
                                   <span
-                                    className={`text-xs px-2 py-1 rounded-full ml-2 ${
-                                      proj.status === "completed"
-                                        ? "bg-green-500/20 text-green-400"
-                                        : "bg-purple-500/20 text-purple-400"
-                                    }`}
+                                    className={`text-xs px-2 py-1 rounded-full ml-2 ${proj.status === "completed"
+                                      ? "bg-green-500/20 text-green-400"
+                                      : "bg-purple-500/20 text-purple-400"
+                                      }`}
                                   >
                                     {proj.status === "completed"
                                       ? "Completed"
